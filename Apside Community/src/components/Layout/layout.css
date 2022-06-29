@@ -1,0 +1,18 @@
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: solid 1px red;
+}
+
+.body-container {
+  display: flex;
+  gap: 1rem;
+  border: solid 1px red;
+}
+
+.sidebar {
+  height: 90vh;
+  width: 12rem;
+  background-color: blue;
+}
