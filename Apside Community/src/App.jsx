@@ -1,14 +1,16 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Accueil from './components/Accueil';
+import Accueil from './pages/Accueil';
+import Favorites from './pages/Favorites';
+import Projects from './pages/Projects';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path='/accounts' element={<Accueil />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path='/' element={<Accueil />} />
+      <Route path='/favorites' element={<Favorites />} />
+      <Route path='/projects' element={<Projects />} />
+    </Routes>
   );
 }
 

@@ -5,6 +5,7 @@
   border: solid 1px red;
 }
 
+
 .body-container {
   display: flex;
   gap: 1rem;
@@ -12,7 +13,18 @@
 }
 
 .sidebar {
-  height: 90vh;
-  width: 12rem;
-  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh-64px);
+}
+.list-menu-container {
+  height: 35vh;
+  background-color: black;
+}
+.btn-create-container {
+  height: 50vh;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
 }
