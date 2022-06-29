@@ -1,8 +1,15 @@
 import './App.css';
-import Layout from './components/Layout/Layout';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Accueil from './components/Accueil';
 
 function App() {
-  return <div>Les pages s'affichent ici</div>;
+  return (
+    <Router>
+      <Routes>
+        <Route path='/accounts' element={<Accueil />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
