@@ -1,12 +1,10 @@
-import { Button, Link as MULink } from '@mui/material';
+import { Button, Link } from '@mui/material';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
-
-import { Link } from 'react-router-dom';
 
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -19,6 +17,7 @@ import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import ContentPasteSearchIcon from '@mui/icons-material/ContentPasteSearch';
 import { useState } from 'react';
+import LinkBehavior from '../LinkBehavior';
 
 function Sidebar() {
   const [open, setOpen] = useState(true);
@@ -35,10 +34,18 @@ function Sidebar() {
           subheader={
             <ListSubheader component='div' id='nested-list-subheader'>
               {/* Menu */}
+              <Link component={LinkBehavior} to='/'>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <AccountTreeIcon />
+                  </ListItemIcon>
+                  <ListItemText primary='Accueil' />
+                </ListItemButton>
+              </Link>
             </ListSubheader>
           }
         >
-         <Link to='/projects'>
+          <Link component={LinkBehavior} to='/projects'>
             <ListItemButton>
               <ListItemIcon>
                 <AccountTreeIcon />
@@ -46,7 +53,7 @@ function Sidebar() {
               <ListItemText primary='Mes projets' />
             </ListItemButton>
           </Link>
-          <Link to='/favorites'>
+          <Link component={LinkBehavior} to='/favorites'>
             <ListItemButton>
               <ListItemIcon>
                 <FolderSpecialIcon />
@@ -63,20 +70,20 @@ function Sidebar() {
           </ListItemButton>
           {/* <Collapse in={open} timeout='auto' unmountOnExit>
             <List component='div' disablePadding> */}
-          <Link to='/'><ListItemButton
-            style={{
-              fontSize: 25,
-            }}
-            sx={{ pl: 4 }}
-          >
-            
+          <Link component={LinkBehavior} to='/'>
+            <ListItemButton
+              style={{
+                fontSize: 25,
+              }}
+              sx={{ pl: 4 }}
+            >
               <ListItemIcon>
                 <ContentPasteSearchIcon />
               </ListItemIcon>
               <ListItemText primary='Projets' />
-          
-          </ListItemButton>  </Link>
-          <Link to='/'>
+            </ListItemButton>{' '}
+          </Link>
+          <Link component={LinkBehavior} to='/'>
             <ListItemButton sx={{ pl: 4 }}>
               <ListItemIcon>
                 <PersonSearchIcon />
@@ -84,7 +91,7 @@ function Sidebar() {
               <ListItemText primary='Collaborateurs' />
             </ListItemButton>
           </Link>
-          <Link to='/'>
+          <Link component={LinkBehavior} to='/'>
             <ListItemButton sx={{ pl: 4 }}>
               <ListItemIcon>
                 <TravelExploreIcon />
