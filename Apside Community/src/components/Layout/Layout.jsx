@@ -18,36 +18,24 @@ function Layout({ children }) {
   }));
 
   return (
-    <><Router>
+    <Router>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={1}>
-          <Grid xs={12}>
-            <Item>
-              <Navbar />
-            </Item>
+          <Grid item xs={12}>
+            <Navbar />
           </Grid>
-          <Grid xs={2}>
+          <Grid item xs={2}>
             <Item>
               <Sidebar />
             </Item>
           </Grid>
 
-          <Grid xs={10}>
-            <Item>{children}</Item>
+          <Grid item xs={10}>
+            {children}
           </Grid>
         </Grid>
       </Box>
-
-      {/* <div className='layout-container'>
-      <Router>
-        <Navbar />
-        <div className='body-container'>
-          <Sidebar />
-          {children}
-        </div>
-      </Router>
-    </div> */} </Router>
-    </>
+    </Router>
   );
 }
 
