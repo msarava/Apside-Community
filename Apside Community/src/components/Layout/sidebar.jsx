@@ -38,14 +38,14 @@ function Sidebar() {
             </ListSubheader>
           }
         >
-         <MULink> <Link to='/projects'>
+         <Link to='/projects'>
             <ListItemButton>
               <ListItemIcon>
                 <AccountTreeIcon />
               </ListItemIcon>
               <ListItemText primary='Mes projets' />
             </ListItemButton>
-          </Link></MULink>
+          </Link>
           <Link to='/favorites'>
             <ListItemButton>
               <ListItemIcon>
