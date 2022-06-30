@@ -20,13 +20,13 @@ const rows = [
   createData("Heliport view","Eurocopter","Renata Fishpond","19/07/2020","25/06/2020","c++"),
 ];
 
-function ProjectInProgress() {
+function ProjectFavorite() {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size="medium" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell>PROJECTS IN PROGRESS</TableCell>
+            <TableCell>FAVORITE PROJECTS</TableCell>
            
             <TableCell align="right">Customer</TableCell>
             <TableCell align="right">Project Manager</TableCell>
@@ -57,4 +57,5 @@ function ProjectInProgress() {
   )
 }
 
-export default ProjectInProgress;
+export default ProjectFavorite;
+
