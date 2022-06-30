@@ -6,7 +6,7 @@ import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Step1, Step2 } from '../components/steps-project/Steps';
-import { ArrowBack, ArrowNext } from '@mui/icons-material';
+import { ArrowBack, ArrowForward } from '@mui/icons-material';
 const steps = ['Infos projet', 'Equipe', 'outils'];
 
 const stepsComponents = [<Step1 />, <Step2 />];
@@ -68,7 +68,18 @@ export default function HorizontalLinearStepper() {
         flexDirection: 'column',
       }}
     >
-      <Stepper activeStep={activeStep} sx={{ mt: 2 }}>
+      <Typography
+        variant='h1'
+        sx={{
+          fontSize: '2rem',
+          textAlign: 'center',
+          mt: 2,
+          mb: 2,
+        }}
+      >
+        Créer un nouveau projet
+      </Typography>
+      <Stepper activeStep={activeStep} sx={{ mt: 2, mb: 1 }}>
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
@@ -87,9 +98,7 @@ export default function HorizontalLinearStepper() {
           );
         })}
       </Stepper>
-      <Typography sx={{ mb: 0, border: '1px solid red', minHeight: 'auto' }}>
-        {stepsComponents[activeStep]}
-      </Typography>
+      <Box sx={{ mb: 0, minHeight: 'auto' }}>{stepsComponents[activeStep]}</Box>
 
       {activeStep === steps.length ? (
         <React.Fragment>
@@ -139,7 +148,7 @@ export default function HorizontalLinearStepper() {
               onClick={handleNext}
               variant='contained'
               size='large'
-              endIcon={<ArrowNext />}
+              endIcon={<ArrowForward />}
             >
               {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
             </Button>
