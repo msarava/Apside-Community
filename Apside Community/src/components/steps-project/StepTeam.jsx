@@ -184,7 +184,11 @@ export default function StepTeam() {
 
       <Grid container spacing={2} justifyContent='center' alignItems='center'>
         <Grid item>
-          {customList(left.filter((user) => user.includes(collab)))}
+          {customList(
+            left.filter((user) =>
+              user.toLowerCase().includes(collab.toLocaleLowerCase())
+            )
+          )}
         </Grid>
         <Grid item>
           <Grid container direction='column' alignItems='center'>

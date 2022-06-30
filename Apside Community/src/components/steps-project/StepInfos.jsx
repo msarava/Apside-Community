@@ -1,25 +1,31 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Grid, Box, MenuItem, TextField, Typography } from '@mui/material';
 import clients from '../../../data/client.json';
-import Projects from '../../pages/Projects';
 import { DateTime } from 'luxon';
+import projectsList from '../../../data/project.json';
 
-function Step1() {
+function StepInfos({ form, updateForm }) {
   let today = DateTime.now();
   today = `${today.year}-${today.month.toString().padStart(2, '0')}-${
     today.day
   }`;
-  const [form, updateForm] = useState({
-    name: '',
-    client_id: 1,
-    date_start: '',
-    date_end: '',
-  });
-
+  const [nameInfo, setNameInfo] = useState('primary');
   const handleUpdateForm = (e) => {
+    console.log('name changed:', e.target.value);
+    if (e.target.name === 'name') {
+      if (
+        projectsList.filter(
+          (el) =>
+            el.name.toLocaleLowerCase() === e.target.value.toLocaleLowerCase()
+        ).length
+      ) {
+        setNameInfo('error');
+      }
+    }
     updateForm((form) => {
       return { ...form, [e.target.name]: e.target.value };
     });
+    setNameInfo('primary');
   };
   return (
     <Grid
@@ -64,8 +70,9 @@ function Step1() {
             name='name'
             value={form.name}
             label='Nom du project'
-            helperText='Entrer le nom du projet'
+            helperText={nameInfo}
             onChange={handleUpdateForm}
+            color={nameInfo}
           />
         </Grid>
         <Grid item xs={4} sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -160,4 +167,4 @@ function Step2() {
   return <div>Step2</div>;
 }
 
-export { Step1, Step2 };
+export default StepInfos;
