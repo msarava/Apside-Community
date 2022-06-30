@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid, Box, MenuItem, TextField, Typography } from '@mui/material';
 import clients from '../../../data/client.json';
 import Projects from '../../pages/Projects';
@@ -9,7 +9,18 @@ function Step1() {
   today = `${today.year}-${today.month.toString().padStart(2, '0')}-${
     today.day
   }`;
+  const [form, updateForm] = useState({
+    name: '',
+    client_id: 1,
+    date_start: '',
+    date_end: '',
+  });
 
+  const handleUpdateForm = (e) => {
+    updateForm((form) => {
+      return { ...form, [e.target.name]: e.target.value };
+    });
+  };
   return (
     <Grid
       container
@@ -22,41 +33,71 @@ function Step1() {
         },
       }}
     >
-      <Grid item xs={12} sx={{ border: '1px dashed grey' }}>
-        <Typography variant='h3'>Informations du projet</Typography>
+      <Grid xs={12}>
+        <Typography item variant='h3'>
+          Informations du projet
+        </Typography>
       </Grid>
-
-      <TextField
-        id='project_name'
-        label='Nom du project'
-        helperText='Entrer le nom du projet'
-      />
-      <TextField
-        select
-        id='project_client'
-        helperText='Choisissez le client'
-        value={clients[0].society}
+      <Grid
+        item
+        xs={12}
+        sx={{
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'space-evenly',
+        }}
       >
-        {clients.map((client) => (
-          <MenuItem key={client.id} value={client.society}>
-            {client.society}
-          </MenuItem>
-        ))}
-      </TextField>
-      <TextField
-        id='date_start'
-        name='date_start'
-        type='date'
-        defaultValue={today}
-        helperText='Date de début du projet'
-      />
-      <TextField
-        id='date_end'
-        name='date_end'
-        type='date'
-        defaultValue={today}
-        helperText='Date de fin estimé du projet'
-      />
+        <Grid xs={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+          <TextField
+            sx={{ width: '90%' }}
+            id='project_name'
+            name='name'
+            value={form.name}
+            label='Nom du project'
+            helperText='Entrer le nom du projet'
+            onChange={handleUpdateForm}
+          />
+        </Grid>
+        <Grid xs={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+          <TextField
+            sx={{ width: '90%' }}
+            select
+            id='project_client'
+            name='client_id'
+            helperText='Choisissez le client'
+            value={
+              clients.filter((client) => client.id == form.client_id)[0].id
+            }
+            onChange={handleUpdateForm}
+          >
+            {clients.map((client) => (
+              <MenuItem key={client.id} value={client.id}>
+                {client.society}
+              </MenuItem>
+            ))}
+          </TextField>
+        </Grid>
+        <Grid xs={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+          <TextField
+            sx={{ width: '90%' }}
+            id='date_start'
+            name='date_start'
+            type='date'
+            defaultValue={today}
+            helperText='Date de début du projet'
+          />
+        </Grid>
+        <Grid xs={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+          <TextField
+            sx={{ width: '90%' }}
+            id='date_end'
+            name='date_end'
+            type='date'
+            defaultValue={today}
+            helperText='Date de fin estimé du projet'
+          />
+        </Grid>
+      </Grid>
     </Grid>
   );
 }
