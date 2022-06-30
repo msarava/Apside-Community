@@ -9,13 +9,14 @@ import Paper from '@mui/material/Paper';
 import projectList from '../../data/project.json';
 import Utils from '../utils/Utils';
 
-function ProjectFavorite() {
+
+function ProjectInProgress() {
   return (
     <TableContainer component={Paper}>
     <Table sx={{ minWidth: 650 }} size='medium' aria-label='a dense table'>
       <TableHead>
         <TableRow>
-          <TableCell>MY FAVORITES</TableCell>
+          <TableCell>MY PROJECTS</TableCell>
 
           <TableCell align='right'>Customer</TableCell>
           <TableCell align='right'>Project Manager</TableCell>
@@ -48,5 +49,4 @@ function ProjectFavorite() {
 );
 }
 
-export default ProjectFavorite;
-
+export default ProjectInProgress;

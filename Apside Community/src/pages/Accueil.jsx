@@ -1,15 +1,19 @@
 import React from 'react';
-import ProjectInProgress from '../components/projectInProgress';
-import Favorites from "../components/Favorites";
+import Projects from './Projects';
+import Favorites from '../components/Favorites';
 
 function Accueil() {
-  return <div>Page d'accueil
-    <div><ProjectInProgress /></div>
-    <br/>
-    <br/>
-    <br/>
-    <div><Favorites /></div>
-  </div>;
+  return (
+    <div>
+      Page d'accueil
+      <div />
+      <Projects />
+      <br />
+      <br />
+      <br />
+      <Favorites />
+    </div>
+  );
 }
 
 export default Accueil;
