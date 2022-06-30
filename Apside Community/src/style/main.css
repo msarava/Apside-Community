@@ -40,3 +40,8 @@
   font-weight: bold;
   color: var(--primary-orange);
 }
+
+.title-actualites{
+  font-style: italic;
+  padding: 0.5rem;
+}
