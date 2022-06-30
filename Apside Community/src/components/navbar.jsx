@@ -15,7 +15,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import logo_AC from '../assets/logo_apside.png';
+import logo_AC from '../assets/logo_apside_clair.png';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Grid } from '@mui/material';
@@ -171,7 +171,7 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='static'>
+      <AppBar position='static' sx={{ backgroundColor: '#183650' }}>
         <Toolbar
           sx={{
             display: 'flex',
