@@ -7,6 +7,68 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
+function createData(
+  name,
+  customer,
+  project_manager,
+  start_date,
+  estimed_end,
+  techno
+) {
+  return { name, customer, project_manager, start_date, estimed_end, techno };
+}
+
+const rows = [
+  createData(
+    'Bamity',
+    'Twinder',
+    'Hinze Guyonnet',
+    '19/07/2021',
+    '25/06/2021',
+    'php'
+  ),
+  createData(
+    'Heliport view',
+    'Eurocopter',
+    'Renata Fishpond',
+    '19/07/2020',
+    '25/06/2020',
+    'c++'
+  ),
+  createData(
+    'Airbus A380',
+    'Airbus',
+    'Almeria Windley',
+    '19/07/2020',
+    '25/06/2020',
+    'java'
+  ),
+  createData(
+    'Aerospace Bird',
+    'Renault Future',
+    'El Ouldcott',
+    '19/02/2022',
+    '01/04/2022',
+    'php'
+  ),
+  createData(
+    'Thales Satelis',
+    'Thales',
+    'Gery Dun',
+    '02/07/2019',
+    '12/012/2020',
+    'html'
+  ),
+  createData(
+    'Heliport view',
+    'Eurocopter',
+    'Renata Fishpond',
+    '19/07/2020',
+    '25/06/2020',
+    'c++'
+  ),
+];
+
 function ProjectInProgress() {
   return (
     <TableContainer component={Paper}>
