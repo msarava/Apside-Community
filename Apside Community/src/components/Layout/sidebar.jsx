@@ -105,7 +105,7 @@ function Sidebar() {
         </List>
       </div>
       <div className='btn-create-container'>
-        <Button size='small' variant='outlined' startIcon={<CreateIcon />}>
+        <Button size='small' variant='outlined'  startIcon={<CreateIcon />}>
           + Créer un projet
         </Button>
       </div>

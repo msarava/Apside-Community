@@ -1,7 +1,8 @@
 import React from 'react';
 import Actualites from '../components/Actualites';
-import ProjectInProgress from '../components/projectInProgress';
 import '../style/main.css'
+import Favorites from '../components/Favorites';
+import ProjectInProgress from '../components/ProjectInProgress';
 
 function Accueil() {
   return (
@@ -9,6 +10,7 @@ function Accueil() {
       <Actualites />
     </div>
       <ProjectInProgress />
+      <Favorites />
      
     </>
   );
