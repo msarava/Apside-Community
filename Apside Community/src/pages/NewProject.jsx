@@ -7,9 +7,10 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Step1, Step2 } from '../components/steps-project/Steps';
 import { ArrowBack, ArrowForward } from '@mui/icons-material';
-const steps = ['Infos projet', 'Equipe', 'outils'];
+import StepTeam from '../components/steps-project/StepTeam';
 
-const stepsComponents = [<Step1 />, <Step2 />];
+const steps = ['Infos projet', 'Equipe', 'outils'];
+const stepsComponents = [<Step1 />, <StepTeam />];
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);

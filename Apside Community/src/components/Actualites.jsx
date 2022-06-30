@@ -9,7 +9,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
-import { Box, createTheme } from '@mui/material';
+import { Box, createTheme, Paper } from '@mui/material';
 import Badge from '@mui/material/Badge';
 import FeedIcon from '@mui/icons-material/Feed';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -63,18 +63,22 @@ export default function Actualites() {
   const [newsFeed, setNewsFeed] = React.useState(4);
   return (
     <div>
-      <Button onClick={toggleDrawer('right', true)}>
-        <Badge badgeContent={newsFeed} color='primary'>
-          <FeedIcon color='action' />
-        </Badge>
-      </Button>
+      <div>
+        <span className='title-actualites'>Actualités</span>
+        <Button onClick={toggleDrawer('right', true)}>
+          <Badge badgeContent={newsFeed} color='primary'>
+            <FeedIcon color='action' />
+          </Badge>
+        </Button>
+      </div>
       <Drawer
         anchor={'right'}
         open={state['right']}
         onClose={toggleDrawer('right', false)}
       >
         <div className='arrow-feed-container'>
-          <div>Actualités</div><ArrowForwardIosIcon onClick={toggleDrawer('right', false)} />
+          <div>Actualités</div>
+          <ArrowForwardIosIcon onClick={toggleDrawer('right', false)} />
         </div>
         {list('right')}
       </Drawer>
