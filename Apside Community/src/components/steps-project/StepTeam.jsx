@@ -19,12 +19,28 @@ function not(a, b) {
 function intersection(a, b) {
   return a.filter((value) => b.indexOf(value) !== -1);
 }
-const collabList = Collaborators.map((collab) => collab.name);
 
-export default function TransferList() {
+export default function StepTeam() {
+  const [agency, setAgency] = React.useState(
+    '55f29782-498e-48ff-8b8c-5a7222ab4b71'
+  );
+  const [techno, setTechno] = React.useState('');
+
+  const searchedAgency = Agencies.filter((el) => el.id === agency)[0]?.id || '';
+
+  console.log(searchedAgency);
+  const collabList = Collaborators.filter(
+    (collab) => collab.technos.includes(techno.toLowerCase()) || techno === ''
+  )
+    .filter(
+      (collab) => collab.agency === searchedAgency || searchedAgency === ''
+    )
+    .map((collab) => collab.name);
+
   const [checked, setChecked] = React.useState([]);
   const [left, setLeft] = React.useState(collabList);
   const [right, setRight] = React.useState([]);
+  const [collab, setCollab] = React.useState('');
 
   const leftChecked = intersection(checked, left);
   const rightChecked = intersection(checked, right);
@@ -95,10 +111,39 @@ export default function TransferList() {
       </List>
     </Paper>
   );
-  const [Agency, setAgency] = React.useState('Agence');
-  const handleChange = (event) => {
+
+  const technoList = [
+    { id: 1, name: 'JavaScript' },
+    { id: 2, name: 'Java' },
+    { id: 3, name: 'Angular' },
+    { id: 4, name: 'CSS' },
+    { id: 5, name: 'HTML' },
+    { id: 6, name: 'C#' },
+    { id: 7, name: 'Php' },
+    { id: 8, name: 'Vue' },
+    { id: 9, name: 'C++' },
+    { id: 10, name: 'Python' },
+    { id: 11, name: 'Express' },
+    { id: 12, name: 'SQL' },
+    { id: 13, name: 'React.Js' },
+  ];
+
+  const handleChangeAgency = (event) => {
     setAgency(event.target.value);
   };
+
+  const handleChangeTechno = (event) => {
+    setTechno(event.target.value);
+  };
+
+  const handleChangeCollab = (event) => {
+    setCollab(event.target.value);
+  };
+
+  React.useEffect(() => {
+    setLeft(collabList);
+  }, [agency, techno]);
+
   return (
     <div className='step-collab-container'>
       <div className='step-collab-title'>Mon équipe</div>
@@ -106,26 +151,41 @@ export default function TransferList() {
         <TextField
           helperText='Entrer le nom du collaborateur'
           label='Rechercher un collaborateur'
+          onChange={handleChangeCollab}
+          value={collab}
         />
         <TextField
-          id='outlined-select-currency'
+          id='outlined-select-agency'
           select
-          label='Select'
-          value={Agency}
-          onChange={handleChange}
-          helperText='Sélectionne Agence'
+          value={Agencies.filter((el) => el.id === agency)[0].id}
+          onChange={handleChangeAgency}
+          helperText='Sélectionner une agence'
         >
           {Agencies.map((agency) => (
-            <MenuItem key={agency.id} value={agency.city[0]}>
+            <MenuItem key={agency.id} value={agency.id}>
               {agency.city}
             </MenuItem>
           ))}
         </TextField>
-        <FormControlLabel control={<CheckBox />} label='Label' />
+        <TextField
+          id='outlined-select-techno'
+          select
+          value={techno}
+          onChange={handleChangeTechno}
+          helperText='Sélectionner une techno'
+        >
+          {technoList.map((techno) => (
+            <MenuItem key={techno.id} value={techno.name}>
+              {techno.name}
+            </MenuItem>
+          ))}
+        </TextField>
       </div>
 
       <Grid container spacing={2} justifyContent='center' alignItems='center'>
-        <Grid item>{customList(left)}</Grid>
+        <Grid item>
+          {customList(left.filter((user) => user.includes(collab)))}
+        </Grid>
         <Grid item>
           <Grid container direction='column' alignItems='center'>
             <Button
