@@ -8,7 +8,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import projectList from '../../data/project.json';
 import Utils from '../utils/Utils';
-import Jauge from "./Jauge";
+import Jauge from './Jauge';
+import { Typography } from '@mui/material';
 
 function Project({
   favoris = false,
@@ -18,23 +19,23 @@ function Project({
 }) {
   const id = 'c4e349c5-0a9e-40b9-bde7-c84bad61a15a';
   let newprojectList = projectList;
-  let title = "projets";
+  let title = 'projets';
   if (myproject) {
-    title = "mes projets"
+    title = 'mes projets';
     newprojectList = projectList.filter(
       (project) => project.team.includes(id) || project.manager === id
     );
   }
   if (favoris) {
-    title = "mes favoris"
+    title = 'mes favoris';
     newprojectList = projectList.slice(0, 5);
   }
   if (allfavoris) {
-    title = "tous mes favoris"
+    title = 'tous mes favoris';
     newprojectList = projectList.slice(0, 8);
   }
   if (shortlist) {
-    title = "tous mes projets"
+    title = 'tous mes projets';
     newprojectList = projectList.slice(30, 35);
   }
   return (
@@ -42,8 +43,17 @@ function Project({
       <Table sx={{ minWidth: 650 }} size='medium' aria-label='a dense table'>
         <TableHead>
           <TableRow>
-            <TableCell>{title}</TableCell>
-            
+            <TableCell
+              colspan={7}
+              align='center'
+              sx={{ backgroundColor: '#e89759' }}
+            >
+              {title.toUpperCase()}
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Projet</TableCell>
+
             <TableCell align='right'>Client</TableCell>
             <TableCell align='right'>Manager projet</TableCell>
             <TableCell align='right'>Développeurs</TableCell>
@@ -59,9 +69,10 @@ function Project({
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component='th' scope='row'>
-                {row.name}
+                <Typography sx={{ mb: 1 }}>{row.name}</Typography>
+                <Jauge state={row.state} height='10px' />
               </TableCell>
-              
+
               <TableCell align='right'>
                 {Utils.getClientById(row.client_id).society}
               </TableCell>

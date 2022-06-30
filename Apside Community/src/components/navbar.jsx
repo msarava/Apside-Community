@@ -15,7 +15,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import logo_AC from '../assets/logo_apside.png';
+import logo_AC from '../assets/logo_apside_clair.png';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Grid } from '@mui/material';
@@ -107,9 +107,9 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Profil</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Mon compte</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Déconnexion</MenuItem>
     </Menu>
   );
 
@@ -167,8 +167,13 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='static' color='primary'>
-        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+      <AppBar position='static' sx={{ backgroundColor: '#183650' }}>
+        <Toolbar
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+          }}
+        >
           <Typography
             variant='h6'
             noWrap
@@ -192,7 +197,12 @@ export default function PrimarySearchAppBar() {
               width: '70%',
             }}
           >
-            <TextField select size='small' sx={{ width: 150 }} value={filtres}>
+            <TextField
+              select
+              size='small'
+              sx={{ width: 150, backgroundColor: '#f0f0f0', borderRadius:"5px" }}
+              value={filtres}
+            >
               {filtres.map((option) => (
                 <MenuItem>{option.label}</MenuItem>
               ))}
