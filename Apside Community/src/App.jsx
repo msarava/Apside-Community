@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Accueil from './pages/Accueil';
-import Favorites from './pages/AllFavorites';
+import Favorites from './components/Favorites';
 import Projects from './pages/Projects';
 import ProjectInProgress from './components/ProjectInProgress';
 

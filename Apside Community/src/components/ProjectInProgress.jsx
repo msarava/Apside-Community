@@ -7,7 +7,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import projectList from '../../data/project.json';
-import collaboratorList from '../../data/collaborator.json';
 import Utils from '../utils/Utils';
 
 function ProjectInProgress() {
@@ -21,13 +20,14 @@ function ProjectInProgress() {
     <Table sx={{ minWidth: 650 }} size='medium' aria-label='a dense table'>
       <TableHead>
         <TableRow>
-          <TableCell>MY PROJECTS</TableCell>
+          <TableCell>MES PROJETS</TableCell>
 
-          <TableCell align='right'>Customer</TableCell>
-          <TableCell align='right'>Project Manager</TableCell>
-          <TableCell align='right'>Start date</TableCell>
-          <TableCell align='right'>Estimed end</TableCell>
-          <TableCell align='right'>techno</TableCell>
+          <TableCell align='right'>Client</TableCell>
+          <TableCell align='right'>Equipe</TableCell>
+          <TableCell align='right'>Manager projet</TableCell>
+          <TableCell align='right'>Date début</TableCell>
+          <TableCell align='right'>Date fin estimée</TableCell>
+          <TableCell align='right'>Techno</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
@@ -40,6 +40,7 @@ function ProjectInProgress() {
               {row.name}
             </TableCell>
             <TableCell align='right'>{row.customer}</TableCell>
+          
             <TableCell align='right'>
               {Utils.getUserById(row.manager).name}
             </TableCell>

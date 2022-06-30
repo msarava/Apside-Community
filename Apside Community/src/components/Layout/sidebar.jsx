@@ -45,7 +45,7 @@ function Sidebar() {
             </ListSubheader>
           }
         >
-          <Link component={LinkBehavior} to='/projects'>
+          <Link component={LinkBehavior} to='/myprojects'>
             <ListItemButton>
               <ListItemIcon>
                 <AccountTreeIcon />

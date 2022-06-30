@@ -9,19 +9,20 @@ import Paper from '@mui/material/Paper';
 import projectList from '../../data/project.json';
 import Utils from '../utils/Utils';
 
-function Project() {
+function Projects() {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size='medium' aria-label='a dense table'>
         <TableHead>
           <TableRow>
-            <TableCell>ALL PROJECTS</TableCell>
+            <TableCell>TOUS LES PROJETS</TableCell>
 
-            <TableCell align='right'>Customer</TableCell>
-            <TableCell align='right'>Project Manager</TableCell>
-            <TableCell align='right'>Start date</TableCell>
-            <TableCell align='right'>Estimed end</TableCell>
-            <TableCell align='right'>techno</TableCell>
+            <TableCell align='right'>Client</TableCell>
+            <TableCell align='right'>Equipe</TableCell>
+            <TableCell align='right'>Manager projet</TableCell>
+            <TableCell align='right'>Date début</TableCell>
+            <TableCell align='right'>Date fin estimée</TableCell>
+            <TableCell align='right'>Techno</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -34,6 +35,7 @@ function Project() {
                 {row.name}
               </TableCell>
               <TableCell align='right'>{row.customer}</TableCell>
+              <TableCell align='right'>{row.team.map((el) => el)}</TableCell>
               <TableCell align='right'>
                 {Utils.getUserById(row.manager).name}
               </TableCell>
