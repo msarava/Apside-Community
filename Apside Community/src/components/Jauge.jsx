@@ -1,9 +1,13 @@
-import React from 'react'
+import { LinearProgress } from '@mui/material';
+import { Box } from '@mui/system';
+import React from 'react';
 
-function Jauge() {
+function Jauge({ state }) {
   return (
-    <div>Jauge</div>
-  )
+    <Box sx={{ width: '80px' }}>
+      <LinearProgress variant='determinate' value={state * 20} />
+    </Box>
+  );
 }
 
-export default Jauge
+export default Jauge;

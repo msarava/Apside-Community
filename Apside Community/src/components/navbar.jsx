@@ -167,7 +167,7 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='static'>
+      <AppBar position='static' color='primary'>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Typography
             variant='h6'
@@ -192,14 +192,19 @@ export default function PrimarySearchAppBar() {
               width: '70%',
             }}
           >
-            <Autocomplete
+            <TextField select size='small' sx={{ width: 150 }} value={filtres}>
+              {filtres.map((option) => (
+                <MenuItem>{option.label}</MenuItem>
+              ))}
+            </TextField>
+            {/* <Autocomplete
               disablePortal
               id='combo-box-demo'
               options={filtres}
               size='small'
               sx={{ width: 200 }}
               renderInput={(params) => <TextField {...params} label='Filtre' />}
-            />
+            /> */}
             <Search>
               <SearchIconWrapper>
                 <SearchIcon />
