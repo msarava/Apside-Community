@@ -46,7 +46,12 @@ function Sidebar() {
               <ListItemText primary='Accueil' />
             </ListItemButton>
           </Link>
-          <Link component={LinkBehavior} to='/projects' underline='none'color='black'>
+          <Link
+            component={LinkBehavior}
+            to='/projects'
+            underline='none'
+            color='black'
+          >
             <ListItemButton>
               <ListItemIcon>
                 <AccountTreeIcon />
@@ -54,7 +59,12 @@ function Sidebar() {
               <ListItemText primary='Mes projets' />
             </ListItemButton>
           </Link>
-          <Link component={LinkBehavior} to='/favorites' underline='none'color='black'>
+          <Link
+            component={LinkBehavior}
+            to='/favorites'
+            underline='none'
+            color='black'
+          >
             <ListItemButton>
               <ListItemIcon>
                 <FolderSpecialIcon />
@@ -71,7 +81,7 @@ function Sidebar() {
           </ListItemButton>
           {/* <Collapse in={open} timeout='auto' unmountOnExit>
             <List component='div' disablePadding> */}
-          <Link component={LinkBehavior} to='/' underline='none'color='black'>
+          <Link component={LinkBehavior} to='/' underline='none' color='black'>
             <ListItemButton
               style={{
                 fontSize: 25,
@@ -84,7 +94,7 @@ function Sidebar() {
               <ListItemText primary='Projets' />
             </ListItemButton>{' '}
           </Link>
-          <Link component={LinkBehavior} to='/' underline='none'color='black'>
+          <Link component={LinkBehavior} to='/' underline='none' color='black'>
             <ListItemButton sx={{ pl: 6 }}>
               <ListItemIcon>
                 <PersonSearchIcon />
@@ -92,7 +102,7 @@ function Sidebar() {
               <ListItemText primary='Collaborateurs' />
             </ListItemButton>
           </Link>
-          <Link component={LinkBehavior} to='/' underline='none'color='black'>
+          <Link component={LinkBehavior} to='/' underline='none' color='black'>
             <ListItemButton sx={{ pl: 6 }}>
               <ListItemIcon>
                 <TravelExploreIcon />
@@ -105,7 +115,13 @@ function Sidebar() {
         </List>
       </div>
       <div className='btn-create-container'>
-        <Button size='small' variant='outlined'  startIcon={<CreateIcon />}>
+        <Button
+          size='small'
+          variant='outlined'
+          startIcon={<CreateIcon />}
+          component={LinkBehavior}
+          to='/new-project'
+        >
           + Créer un projet
         </Button>
       </div>
