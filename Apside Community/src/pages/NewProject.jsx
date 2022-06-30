@@ -6,7 +6,7 @@ import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Step1, Step2 } from '../components/steps-project/Steps';
-import { ArrowBack, ArrowNext } from '@mui/icons-material';
+import { ArrowBack, ArrowForward } from '@mui/icons-material';
 const steps = ['Infos projet', 'Equipe', 'outils'];
 
 const stepsComponents = [<Step1 />, <Step2 />];
@@ -139,7 +139,7 @@ export default function HorizontalLinearStepper() {
               onClick={handleNext}
               variant='contained'
               size='large'
-              endIcon={<ArrowNext />}
+              endIcon={<ArrowForward />}
             >
               {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
             </Button>
