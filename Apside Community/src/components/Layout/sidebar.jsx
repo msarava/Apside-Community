@@ -48,7 +48,7 @@ function Sidebar() {
           </Link>
           <Link
             component={LinkBehavior}
-            to='/projects'
+            to='/myprojects'
             underline='none'
             color='black'
           >
@@ -81,7 +81,12 @@ function Sidebar() {
           </ListItemButton>
           {/* <Collapse in={open} timeout='auto' unmountOnExit>
             <List component='div' disablePadding> */}
-          <Link component={LinkBehavior} to='/' underline='none' color='black'>
+          <Link
+            component={LinkBehavior}
+            to='/projects'
+            underline='none'
+            color='black'
+          >
             <ListItemButton
               style={{
                 fontSize: 25,

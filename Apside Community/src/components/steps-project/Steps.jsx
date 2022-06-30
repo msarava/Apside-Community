@@ -1,7 +1,6 @@
 import React from 'react';
 import { Grid, Box, MenuItem, TextField, Typography } from '@mui/material';
 import clients from '../../../data/client.json';
-import Projects from '../../pages/Projects';
 import { DateTime } from 'luxon';
 
 function Step1() {
