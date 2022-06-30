@@ -1,0 +1,26 @@
+[
+{
+  "id":"1",
+  "item":"François P. ",
+  "message":"à rejoint le projet ",
+  "target": "Hackhatton Apsyde"
+},
+{
+  "id":"2",
+  "item":"Le projet IA2022 ",
+  "message":"a été ",
+  "target": "livré"
+},
+{
+  "id":"3",
+  "item":"L'agence Apsyde Lille ",
+  "message":"a initié le projet ",
+  "target": "Overhold"
+},
+
+{
+  "id":"4",
+  "item":"Le client Y-find ",
+  "message":"a ajouté un ",
+  "target": "document"
+}]

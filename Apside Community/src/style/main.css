@@ -1,14 +1,42 @@
 :root {
   --primary-blue-grey: #183650;
-  --primary-orange:#e89759;
-  --primary-light-grey:#f0f0f0;
-  --primary-dark-grey:464646;
-  --secondary-blue-grey:#0a1e30;
-  --secondary-blue-grey:#e77620;
-  --secondary-grey:#787878;
+  --primary-orange: #e89759;
+  --primary-light-grey: #f0f0f0;
+  --primary-dark-grey: 464646;
+  --secondary-blue-grey: #0a1e30;
+  --secondary-blue-grey: #e77620;
+  --secondary-grey: #787878;
   /*police titre*/
   font-family: 'Montserrat', sans-serif;
   /*police corps*/
   font-family: 'Hind', sans-serif;
+}
 
+.badge-container {
+  display: flex;
+  justify-content: right;
+}
+
+.arrow-feed-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.feed-container {
+  font-size: smaller;
+  display: flex;
+  gap: 0.5rem;
+}
+.feed-item {
+  font-weight: bold;
+  color: var(--primary-blue-grey);
+}
+.feed-message {
+  color: var(--primary-blue-grey);
+  font-style: italic;
+}
+.feed-target {
+  font-weight: bold;
+  color: var(--primary-orange);
 }
