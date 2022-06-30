@@ -8,11 +8,12 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+
 import { Box, createTheme } from '@mui/material';
 import Badge from '@mui/material/Badge';
 import FeedIcon from '@mui/icons-material/Feed';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import feeds from '../../data/feed.json';
 
 export default function Actualites() {
   const [state, setState] = React.useState({
@@ -41,36 +42,39 @@ export default function Actualites() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Actualité1', 'Actualité2', 'Actualité3', 'Actualité4'].map(
-          (text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemText primary={text} />
-              </ListItemButton>
-              <Divider />
-            </ListItem>
-          )
-        )}
+        {feeds.map((feed) => (
+          <ListItem key={feed.id} disablePadding>
+            <ListItemButton>
+              <div className='feed-container'>
+                <span className='feed-item'>{feed.item}</span>
+                <span className='feed-message'>{feed.message}</span>
+                <span className='feed-target'>{feed.target}</span>
+              </div>
+            </ListItemButton>
+            <Divider />
+          </ListItem>
+        ))}
       </List>
     </Box>
   );
   const [newsFeed, setNewsFeed] = React.useState(4);
   return (
     <div>
-      <React.Fragment>
-        <Button onClick={toggleDrawer('right', true)}>
-          <Badge badgeContent={newsFeed} color='primary'>
-            <FeedIcon color='action' />
-          </Badge>
-        </Button>
-        <Drawer
-          anchor={'right'}
-          open={state['right']}
-          onClose={toggleDrawer('right', false)}
-        >
-          {list('right')}
-        </Drawer>
-      </React.Fragment>
+      <Button onClick={toggleDrawer('right', true)}>
+        <Badge badgeContent={newsFeed} color='primary'>
+          <FeedIcon color='action' />
+        </Badge>
+      </Button>
+      <Drawer
+        anchor={'right'}
+        open={state['right']}
+        onClose={toggleDrawer('right', false)}
+      >
+        <div className='arrow-feed-container'>
+          <ArrowForwardIosIcon onClick={toggleDrawer('right', false)} />
+        </div>
+        {list('right')}
+      </Drawer>
     </div>
   );
 }

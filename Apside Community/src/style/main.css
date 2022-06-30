@@ -16,3 +16,26 @@
   display: flex;
   justify-content: right;
 }
+
+.arrow-feed-container {
+  display: flex;
+  justify-content: right;
+  padding: 0.5rem;
+}
+
+.feed-container {
+  font-size: smaller;
+
+}
+.feed-item {
+  font-weight: bold;
+  color: var(--primary-blue-grey);
+}
+.feed-message {
+  color: var(--primary-blue-grey);
+  font-style: italic;
+}
+.feed-target {
+  font-weight: bold;
+  color: var(--primary-orange);
+}
