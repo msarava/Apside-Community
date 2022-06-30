@@ -6,7 +6,9 @@
   --secondary-blue-grey:#0a1e30;
   --secondary-blue-grey:#e77620;
   --secondary-grey:#787878;
+  /*police titre*/
   font-family: 'Montserrat', sans-serif;
+  /*police corps*/
   font-family: 'Hind', sans-serif;
 
 }
