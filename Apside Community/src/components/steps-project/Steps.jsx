@@ -33,8 +33,18 @@ function Step1() {
         },
       }}
     >
-      <Grid xs={12}>
-        <Typography item variant='h3'>
+      <Grid container xs={12}>
+        <Typography
+          item
+          variant='h3'
+          sx={{
+            fontSize: '1.5rem',
+            fontWeight: '100',
+            color: 'gray',
+            textAlign: 'center',
+            width: '100%',
+          }}
+        >
           Informations du projet
         </Typography>
       </Grid>
@@ -47,7 +57,7 @@ function Step1() {
           justifyContent: 'space-evenly',
         }}
       >
-        <Grid xs={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Grid item xs={4} sx={{ display: 'flex', justifyContent: 'center' }}>
           <TextField
             sx={{ width: '90%' }}
             id='project_name'
@@ -58,7 +68,7 @@ function Step1() {
             onChange={handleUpdateForm}
           />
         </Grid>
-        <Grid xs={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Grid item xs={4} sx={{ display: 'flex', justifyContent: 'center' }}>
           <TextField
             sx={{ width: '90%' }}
             select
@@ -77,7 +87,7 @@ function Step1() {
             ))}
           </TextField>
         </Grid>
-        <Grid xs={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Grid item xs={4} sx={{ display: 'flex', justifyContent: 'center' }}>
           <TextField
             sx={{ width: '90%' }}
             id='date_start'
@@ -87,7 +97,7 @@ function Step1() {
             helperText='Date de début du projet'
           />
         </Grid>
-        <Grid xs={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Grid item xs={4} sx={{ display: 'flex', justifyContent: 'center' }}>
           <TextField
             sx={{ width: '90%' }}
             id='date_end'
@@ -95,6 +105,50 @@ function Step1() {
             type='date'
             defaultValue={today}
             helperText='Date de fin estimé du projet'
+          />
+        </Grid>
+      </Grid>
+      <Grid
+        container
+        xs={12}
+        sx={{
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'space-evenly',
+        }}
+      >
+        <Grid
+          item
+          xs={6}
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <TextField
+            multiline
+            rows={10}
+            label='Problématique'
+            helperText='Description de la problématique rencontrée par le client'
+            sx={{
+              width: '90%',
+            }}
+          />
+        </Grid>
+        <Grid
+          item
+          xs={6}
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <TextField
+            multiline
+            label='Solution'
+            helperText='Description de la solution envisagée'
+            rows={10}
+            sx={{ width: '90%' }}
           />
         </Grid>
       </Grid>

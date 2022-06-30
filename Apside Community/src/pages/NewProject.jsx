@@ -68,6 +68,17 @@ export default function HorizontalLinearStepper() {
         flexDirection: 'column',
       }}
     >
+      <Typography
+        variant='h1'
+        sx={{
+          fontSize: '2rem',
+          textAlign: 'center',
+          mt: 2,
+          mb: 2,
+        }}
+      >
+        Créer un nouveau projet
+      </Typography>
       <Stepper activeStep={activeStep} sx={{ mt: 2, mb: 1 }}>
         {steps.map((label, index) => {
           const stepProps = {};
