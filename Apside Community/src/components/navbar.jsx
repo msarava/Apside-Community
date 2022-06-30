@@ -32,7 +32,7 @@ const Search = styled('div')(({ theme }) => ({
   width: '100%',
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(3),
-    width: '50ch' /*longueur de la barre de recherche*/,
+    width: '70ch' /*longueur de la barre de recherche*/,
   },
 }));
 
@@ -55,7 +55,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('md')]: {
-      width: '20ch',
+      width: '30ch',
     },
   },
 }));
@@ -168,84 +168,95 @@ export default function PrimarySearchAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position='static'>
-        <Toolbar>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Typography
             variant='h6'
             noWrap
             component='div'
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            <div>
+            <div className='logo_AC'>
               <img
-                className='logo_AC'
-                srcSet={`${logo_AC}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${logo_AC}?w=164&h=164&fit=crop&auto=format&dpr=1 2x`}
                 alt='logo Apside Community'
               />
             </div>
           </Typography>
 
-          <Autocomplete
-            disablePortal
-            id='combo-box-demo'
-            options={filtres}
-            size='small'
-            sx={{ width: 200 }}
-            renderInput={(params) => <TextField {...params} label='Filtre' />}
-          />
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder='Search…'
-              inputProps={{ 'aria-label': 'search' }}
+          <Grid
+            container
+            sx={{
+              display: 'flex',
+              flexWrap: 'nowrap',
+              justifyContent: 'flex-end',
+              width: '70%',
+            }}
+          >
+            <Autocomplete
+              disablePortal
+              id='combo-box-demo'
+              options={filtres}
+              size='small'
+              sx={{ width: 200 }}
+              renderInput={(params) => <TextField {...params} label='Filtre' />}
             />
-          </Search>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder='Search…'
+                inputProps={{ 'aria-label': 'search' }}
+              />
+            </Search>
+          </Grid>
 
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton
-              size='large'
-              aria-label='show 4 new mails'
-              color='inherit'
-            >
-              <Badge badgeContent={4} color='error'>
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size='large'
-              aria-label='show 17 new notifications'
-              color='inherit'
-            >
-              <Badge badgeContent={17} color='error'>
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size='large'
-              edge='end'
-              aria-label='account of current user'
-              aria-controls={menuId}
-              aria-haspopup='true'
-              onClick={handleProfileMenuOpen}
-              color='inherit'
-            >
-              <AccountCircle />
-            </IconButton>
-          </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size='large'
-              aria-label='show more'
-              aria-controls={mobileMenuId}
-              aria-haspopup='true'
-              onClick={handleMobileMenuOpen}
-              color='inherit'
-            >
-              <MoreIcon />
-            </IconButton>
-          </Box>
+          <div className='right_icons'>
+            <Box sx={{ flexGrow: 1 }} />
+            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+              <IconButton
+                size='large'
+                aria-label='show 4 new mails'
+                color='inherit'
+              >
+                <Badge badgeContent={4} color='error'>
+                  <MailIcon />
+                </Badge>
+              </IconButton>
+              <IconButton
+                size='large'
+                aria-label='show 17 new notifications'
+                color='inherit'
+              >
+                <Badge badgeContent={17} color='error'>
+                  <NotificationsIcon />
+                </Badge>
+              </IconButton>
+              <IconButton
+                size='large'
+                edge='end'
+                aria-label='account of current user'
+                aria-controls={menuId}
+                aria-haspopup='true'
+                onClick={handleProfileMenuOpen}
+                color='inherit'
+              >
+                <AccountCircle />
+              </IconButton>
+            </Box>
+            <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+              <IconButton
+                size='large'
+                aria-label='show more'
+                aria-controls={mobileMenuId}
+                aria-haspopup='true'
+                onClick={handleMobileMenuOpen}
+                color='inherit'
+              >
+                <MoreIcon />
+              </IconButton>
+            </Box>
+          </div>
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
