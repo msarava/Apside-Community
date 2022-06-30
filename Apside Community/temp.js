@@ -35,11 +35,11 @@ const collaboratorsWithAgencies = collaborators.map((el) => {
 });
 console.log(collaboratorsWithAgencies);
 
-fs.appendFile(
-  'agency2.json',
-  JSON.stringify(collaboratorsWithAgencies),
-  (error) => {
-    if (error) throw error;
-    console.log('tout est ok');
-  }
-);
+// fs.appendFile(
+//   'agency2.json',
+//   JSON.stringify(collaboratorsWithAgencies),
+//   (error) => {
+//     if (error) throw error;
+//     console.log('tout est ok');
+//   }
+// );

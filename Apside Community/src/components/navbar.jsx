@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -73,6 +73,10 @@ export default function PrimarySearchAppBar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+  const [filter, setFilter] = useState(0);
+  const handleFilter = (e) => {
+    setFilter(e.target.value);
+  };
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -197,9 +201,21 @@ export default function PrimarySearchAppBar() {
               width: '70%',
             }}
           >
-            <TextField select size='small' sx={{ width: 150 }} value={filtres}>
-              {filtres.map((option) => (
-                <MenuItem>{option.label}</MenuItem>
+            <TextField
+              select
+              size='small'
+              sx={{
+                width: 150,
+                backgroundColor: 'lightgray',
+                borderRadius: '5px',
+              }}
+              value={filter}
+              onChange={handleFilter}
+            >
+              {filtres.map((option, id) => (
+                <MenuItem key={id} value={id}>
+                  {option.label}
+                </MenuItem>
               ))}
             </TextField>
             {/* <Autocomplete
