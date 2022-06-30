@@ -8,8 +8,9 @@ import Typography from '@mui/material/Typography';
 import StepInfos from '../components/steps-project/StepInfos';
 import { ArrowBack, ArrowForward } from '@mui/icons-material';
 import StepTeam from '../components/steps-project/StepTeam';
+import StepTools from '../components/steps-project/StepTools';
 
-const steps = ['Infos projet', 'Equipe', 'outils'];
+const steps = ['Infos projet', 'Outils', 'Equipe'];
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = useState(0);
@@ -62,9 +63,12 @@ export default function HorizontalLinearStepper() {
     client_id: 1,
     date_start: '',
     date_end: '',
+    tools: [],
+    team: []
   });
   const stepsComponents = [
     <StepInfos form={form} updateForm={updateForm} />,
+    <StepTools form={form} updateForm={updateForm} />,
     <StepTeam />,
   ];
   return (
