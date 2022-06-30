@@ -16,6 +16,9 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import logo_AC from '../assets/logo_apside.png';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import { Grid } from '@mui/material';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -56,6 +59,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
+
+const filtres = [
+  { label: 'Projets' },
+  { label: 'Collaborateurs' },
+  { label: 'Agences' },
+];
 
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -174,6 +183,15 @@ export default function PrimarySearchAppBar() {
               />
             </div>
           </Typography>
+
+          <Autocomplete
+            disablePortal
+            id='combo-box-demo'
+            options={filtres}
+            size='small'
+            sx={{ width: 200 }}
+            renderInput={(params) => <TextField {...params} label='Filtre' />}
+          />
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -183,6 +201,7 @@ export default function PrimarySearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
+
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton
