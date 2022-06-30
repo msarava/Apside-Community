@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,10 +7,15 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import projectList from '../../data/project.json';
+import collaboratorList from '../../data/collaborator.json';
 import Utils from '../utils/Utils';
 
-
 function ProjectInProgress() {
+  const id = 'c4e349c5-0a9e-40b9-bde7-c84bad61a15a';
+  const projectListFiltered = projectList.filter(
+    (project) => project.team.includes(id) || project.manager === id
+  );
+  console.log(projectListFiltered);
   return (
     <TableContainer component={Paper}>
     <Table sx={{ minWidth: 650 }} size='medium' aria-label='a dense table'>
@@ -26,7 +31,7 @@ function ProjectInProgress() {
         </TableRow>
       </TableHead>
       <TableBody>
-        {projectList.map((row) => (
+        {projectListFiltered.map((row) => (
           <TableRow
             key={row.name}
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -46,7 +51,7 @@ function ProjectInProgress() {
       </TableBody>
     </Table>
   </TableContainer>
-);
+  );
 }
 
 export default ProjectInProgress;

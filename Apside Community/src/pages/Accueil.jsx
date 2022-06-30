@@ -1,13 +1,13 @@
 import React from 'react';
-import Projects from './Projects';
 import Favorites from '../components/Favorites';
+import ProjectInProgress from '../components/ProjectInProgress';
 
 function Accueil() {
   return (
     <div>
       Page d'accueil
       <div />
-      <Projects />
+      <ProjectInProgress />
       <br />
       <br />
       <br />
