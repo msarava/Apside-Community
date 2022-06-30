@@ -6,6 +6,7 @@ import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Step1, Step2 } from '../components/steps-project/Steps';
+import { ArrowBack, ArrowNext } from '@mui/icons-material';
 const steps = ['Infos projet', 'Equipe', 'outils'];
 
 const stepsComponents = [<Step1 />, <Step2 />];
@@ -57,8 +58,17 @@ export default function HorizontalLinearStepper() {
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Stepper activeStep={activeStep}>
+    <Box
+      sx={{
+        width: '95%',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        display: 'flex',
+        height: '100%',
+        flexDirection: 'column',
+      }}
+    >
+      <Stepper activeStep={activeStep} sx={{ mt: 2 }}>
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
@@ -77,6 +87,10 @@ export default function HorizontalLinearStepper() {
           );
         })}
       </Stepper>
+      <Typography sx={{ mb: 0, border: '1px solid red', minHeight: 'auto' }}>
+        {stepsComponents[activeStep]}
+      </Typography>
+
       {activeStep === steps.length ? (
         <React.Fragment>
           <Typography sx={{ mt: 2, mb: 1 }}>
@@ -89,16 +103,28 @@ export default function HorizontalLinearStepper() {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <Typography sx={{ mt: 2, mb: 1 }}>
-            {stepsComponents[activeStep]}
-          </Typography>
           {}
-          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              pt: 2,
+              pb: 2,
+              mb: 4,
+              justifyContent: 'center',
+              width: '20%',
+              marginTop: 'auto',
+              alignSelf: 'center',
+            }}
+          >
             <Button
               color='inherit'
               disabled={activeStep === 0}
               onClick={handleBack}
               sx={{ mr: 1 }}
+              size='large'
+              variant='contained'
+              startIcon={<ArrowBack />}
             >
               Back
             </Button>
@@ -109,7 +135,12 @@ export default function HorizontalLinearStepper() {
               </Button>
             )}
 
-            <Button onClick={handleNext}>
+            <Button
+              onClick={handleNext}
+              variant='contained'
+              size='large'
+              endIcon={<ArrowNext />}
+            >
               {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
             </Button>
           </Box>

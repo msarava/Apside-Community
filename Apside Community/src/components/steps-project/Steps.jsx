@@ -1,15 +1,31 @@
 import React from 'react';
-import { Box, MenuItem, TextField } from '@mui/material';
+import { Grid, Box, MenuItem, TextField, Typography } from '@mui/material';
 import clients from '../../../data/client.json';
 import Projects from '../../pages/Projects';
+import { DateTime } from 'luxon';
 
 function Step1() {
-  const today = Date.now();
-  console.log( today);
+  let today = DateTime.now();
+  today = `${today.year}-${today.month.toString().padStart(2, '0')}-${
+    today.day
+  }`;
 
   return (
-    <Box component='form' sx={{ '& > :not(style)': { m: 1, width: '25ch' } }}>
-      <h2>Informations du projet</h2>
+    <Grid
+      container
+      component='form'
+      sx={{
+        '& > :not(style)': {
+          m: 4,
+          maxWidth: '100%',
+          display: 'flex',
+        },
+      }}
+    >
+      <Grid item xs={12} sx={{ border: '1px dashed grey' }}>
+        <Typography variant='h3'>Informations du projet</Typography>
+      </Grid>
+
       <TextField
         id='project_name'
         label='Nom du project'
@@ -18,7 +34,6 @@ function Step1() {
       <TextField
         select
         id='project_client'
-        label='Client'
         helperText='Choisissez le client'
         value={clients[0].society}
       >
@@ -29,10 +44,20 @@ function Step1() {
         ))}
       </TextField>
       <TextField
+        id='date_start'
+        name='date_start'
         type='date'
-        defaultValue={Date.now().toLocaleString('fr-FR')}
-      ></TextField>
-    </Box>
+        defaultValue={today}
+        helperText='Date de début du projet'
+      />
+      <TextField
+        id='date_end'
+        name='date_end'
+        type='date'
+        defaultValue={today}
+        helperText='Date de fin estimé du projet'
+      />
+    </Grid>
   );
 }
 
