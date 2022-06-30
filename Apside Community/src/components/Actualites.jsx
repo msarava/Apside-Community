@@ -46,9 +46,12 @@ export default function Actualites() {
           <ListItem key={feed.id} disablePadding>
             <ListItemButton>
               <div className='feed-container'>
-                <span className='feed-item'>{feed.item}</span>
-                <span className='feed-message'>{feed.message}</span>
-                <span className='feed-target'>{feed.target}</span>
+                <FeedIcon />
+                <div>
+                  <span className='feed-item'>{feed.item}</span>
+                  <span className='feed-message'>{feed.message}</span>
+                  <span className='feed-target'>{feed.target}</span>
+                </div>
               </div>
             </ListItemButton>
             <Divider />
@@ -71,7 +74,7 @@ export default function Actualites() {
         onClose={toggleDrawer('right', false)}
       >
         <div className='arrow-feed-container'>
-          <ArrowForwardIosIcon onClick={toggleDrawer('right', false)} />
+          <div>Actualités</div><ArrowForwardIosIcon onClick={toggleDrawer('right', false)} />
         </div>
         {list('right')}
       </Drawer>

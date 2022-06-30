@@ -19,13 +19,14 @@
 
 .arrow-feed-container {
   display: flex;
-  justify-content: right;
-  padding: 0.5rem;
+  justify-content: space-between;
+  padding: 1rem;
 }
 
 .feed-container {
   font-size: smaller;
-
+  display: flex;
+  gap: 0.5rem;
 }
 .feed-item {
   font-weight: bold;
