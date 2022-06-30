@@ -6,10 +6,11 @@ import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Step1, Step2 } from '../components/steps-project/Steps';
-import { ArrowBack, ArrowNext } from '@mui/icons-material';
+import { ArrowBack } from '@mui/icons-material';
+import StepTeam from '../components/steps-project/StepTeam';
 const steps = ['Infos projet', 'Equipe', 'outils'];
 
-const stepsComponents = [<Step1 />, <Step2 />];
+const stepsComponents = [<Step1 />, <StepTeam />];
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -87,9 +88,9 @@ export default function HorizontalLinearStepper() {
           );
         })}
       </Stepper>
-      <Typography sx={{ mb: 0, border: '1px solid red', minHeight: 'auto' }}>
+      <Box sx={{ mb: 0, minHeight: 'auto' }}>
         {stepsComponents[activeStep]}
-      </Typography>
+      </Box>
 
       {activeStep === steps.length ? (
         <React.Fragment>
@@ -139,7 +140,7 @@ export default function HorizontalLinearStepper() {
               onClick={handleNext}
               variant='contained'
               size='large'
-              endIcon={<ArrowNext />}
+              endIcon={<ArrowBack />}
             >
               {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
             </Button>
