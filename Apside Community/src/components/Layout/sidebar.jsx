@@ -34,7 +34,7 @@ function Sidebar() {
           subheader={
             <ListSubheader component='div' id='nested-list-subheader'>
               {/* Menu */}
-              <Link component={LinkBehavior} to='/' underline='none'>
+              <Link component={LinkBehavior} to='/'>
                 <ListItemButton>
                   <ListItemIcon>
                     <AccountTreeIcon />
