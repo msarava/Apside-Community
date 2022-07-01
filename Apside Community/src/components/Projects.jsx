@@ -1,6 +1,8 @@
 import React from 'react';
-import {Link} from "react-router-dom";
-import {Avatar, AvatarGroup } from '@mui/material'
+import { Link } from 'react-router-dom';
+import LinkBehavior from '../components/LinkBehavior';
+import CreateIcon from '@mui/icons-material/Create';
+import { Avatar, AvatarGroup } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -11,8 +13,8 @@ import Paper from '@mui/material/Paper';
 import projectList from '../../data/project.json';
 import Utils from '../utils/Utils';
 import Jauge from './Jauge';
-import {GiMagnifyingGlass} from "react-icons/gi";
-import { Typography } from '@mui/material';
+import { GiMagnifyingGlass } from 'react-icons/gi';
+import { Button, Typography } from '@mui/material';
 import { DiJava } from 'react-icons/di';
 import {
   IoLogoJavascript,
@@ -78,29 +80,78 @@ function Project({
   }
   console.log(Utils.getUserById(projectList[0].manager));
   return (
-    <TableContainer component={Paper} sx={{mb:2}}>
+    <TableContainer component={Paper} sx={{ mb: 2 }}>
       <Table sx={{ minWidth: 650 }} size='small' aria-label='a dense table'>
         <TableHead>
           <TableRow>
-           
             <TableCell
               colspan={8}
               align='center'
               sx={{ backgroundColor: '#e77620' }}
             >
-              <Typography sx={{color: "white", fontWeight:"bold"}}>{title.toUpperCase()}</Typography>
+              <div className='title-container'>
+                <div className='title-proj'>
+                  <Typography sx={{ color: 'white', fontWeight: 'bold' }}>
+                    {title.toUpperCase()}
+                  </Typography>
+                </div>
+                <div className='btn-new-proj'>
+                 {!allfavoris &&!favoris ? <Button
+                    sx={{ backgroundColor: '#183650' }}
+                    size='small'
+                    variant='contained'
+                    startIcon={<CreateIcon />}
+                    component={LinkBehavior}
+                    to='/new-project'
+                  >
+                    + Nouveau projet
+                  </Button>:''}
+                </div>
+              </div>
             </TableCell>
           </TableRow>
           <TableRow>
-          <TableCell align='right'  sx={{fontWeight: 'bold'}}><Typography sx={{color: "#e89759", fontWeight:"bold"}}>Voir</Typography></TableCell>
-            <TableCell  sx={{fontWeight: 'bold'}}><Typography sx={{color: "#e89759", fontWeight:"bold"}}>Projet</Typography></TableCell>
+            <TableCell align='right' sx={{ fontWeight: 'bold' }}>
+              <Typography sx={{ color: '#e89759', fontWeight: 'bold' }}>
+                Voir
+              </Typography>
+            </TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>
+              <Typography sx={{ color: '#e89759', fontWeight: 'bold' }}>
+                Projet
+              </Typography>
+            </TableCell>
 
-            <TableCell align='right'  sx={{fontWeight: 'bold'}}><Typography sx={{color: "#e89759", fontWeight:"bold"}}>Client</Typography></TableCell>
-            <TableCell align='right'  sx={{fontWeight: 'bold'}}><Typography sx={{color: "#e89759", fontWeight:"bold"}}>Manager projet</Typography></TableCell>
-            <TableCell align='right'  sx={{fontWeight: 'bold'}}><Typography sx={{color: "#e89759", fontWeight:"bold"}}>Développeurs</Typography></TableCell>
-            <TableCell align='right'  sx={{fontWeight: 'bold'}}><Typography sx={{color: "#e89759", fontWeight:"bold"}}>Date début</Typography></TableCell>
-            <TableCell align='right'  sx={{fontWeight: 'bold'}}><Typography sx={{color: "#e89759", fontWeight:"bold"}}>Date fin estimée</Typography></TableCell>
-            <TableCell align='right'  sx={{fontWeight: 'bold'}}><Typography sx={{color: "#e89759", fontWeight:"bold"}}>Technos</Typography></TableCell>
+            <TableCell align='right' sx={{ fontWeight: 'bold' }}>
+              <Typography sx={{ color: '#e89759', fontWeight: 'bold' }}>
+                Client
+              </Typography>
+            </TableCell>
+            <TableCell align='right' sx={{ fontWeight: 'bold' }}>
+              <Typography sx={{ color: '#e89759', fontWeight: 'bold' }}>
+                Manager projet
+              </Typography>
+            </TableCell>
+            <TableCell align='right' sx={{ fontWeight: 'bold' }}>
+              <Typography sx={{ color: '#e89759', fontWeight: 'bold' }}>
+                Développeurs
+              </Typography>
+            </TableCell>
+            <TableCell align='right' sx={{ fontWeight: 'bold' }}>
+              <Typography sx={{ color: '#e89759', fontWeight: 'bold' }}>
+                Date début
+              </Typography>
+            </TableCell>
+            <TableCell align='right' sx={{ fontWeight: 'bold' }}>
+              <Typography sx={{ color: '#e89759', fontWeight: 'bold' }}>
+                Date fin estimée
+              </Typography>
+            </TableCell>
+            <TableCell align='right' sx={{ fontWeight: 'bold' }}>
+              <Typography sx={{ color: '#e89759', fontWeight: 'bold' }}>
+                Technos
+              </Typography>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -109,7 +160,11 @@ function Project({
               key={row.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell><Link to={`/projects/${row.id}`}><GiMagnifyingGlass /></Link></TableCell>
+              <TableCell>
+                <Link to={`/projects/${row.id}`}>
+                  <GiMagnifyingGlass />
+                </Link>
+              </TableCell>
               <TableCell align='left'>
                 <Typography sx={{ mb: 1 }}>{row.name}</Typography>
                 <Jauge state={row.state} height='10px' />
@@ -123,7 +178,13 @@ function Project({
               </TableCell>
               <TableCell align='right'>
                 <AvatarGroup max={4}>
-                {row.team.map((el) => <Avatar src={Utils.getUserById(el).profile_pict} sx={{ bgcolor: "#f0f0f0" }} alt={Utils.getUserById(el).name}/>)}
+                  {row.team.map((el) => (
+                    <Avatar
+                      src={Utils.getUserById(el).profile_pict}
+                      sx={{ bgcolor: '#f0f0f0' }}
+                      alt={Utils.getUserById(el).name}
+                    />
+                  ))}
                 </AvatarGroup>
               </TableCell>
               <TableCell align='right'>{row.date_start}</TableCell>
