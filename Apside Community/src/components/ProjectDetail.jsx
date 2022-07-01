@@ -18,6 +18,8 @@ import FolderIcon from '@mui/icons-material/Folder';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import BuildIcon from '@mui/icons-material/Build';
 import Utils from '../utils/Utils';
+import BookmarksIcon from '@mui/icons-material/Bookmarks';
+import LinkBehavior from '../components/LinkBehavior';
 
 function ProjectDetail() {
   const { id } = useParams();
@@ -67,7 +69,17 @@ function ProjectDetail() {
           </CardContent>
         </Card>
       </Grid>
-      <Grid item xs={3}></Grid>
+      <Grid align='center' item xs={3}>
+        <Button
+          size='medium'
+          variant='contained'
+          startIcon={<BookmarksIcon />}
+          component={LinkBehavior}
+          to='/favorites'
+        >
+          + Ajouter aux favoris
+        </Button>
+      </Grid>
       <Grid item xs={12}>
         <Grid container spacing={2} sx={{ mt: 1, mb: 1 }}>
           <Grid item xs={6}>
