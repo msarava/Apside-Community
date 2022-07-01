@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LinkBehavior from '../components/LinkBehavior';
 import CreateIcon from '@mui/icons-material/Create';
-import { Avatar, AvatarGroup } from '@mui/material';
+import { Avatar, AvatarGroup, Box } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -80,8 +80,9 @@ function Project({
   }
   console.log(Utils.getUserById(projectList[0].manager));
   return (
-    <TableContainer component={Paper} sx={{ mb: 2 }}>
-      <Table sx={{ minWidth: 650 }} size='small' aria-label='a dense table'>
+    <Box sx={{pr:2}}>
+    <TableContainer component={Paper} sx={{ mb: 2}}>
+      <Table size='small' aria-label='a dense table'>
         <TableHead>
           <TableRow>
             <TableCell
@@ -199,6 +200,7 @@ function Project({
         </TableBody>
       </Table>
     </TableContainer>
+    </Box>
   );
 }
 
