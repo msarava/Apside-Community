@@ -1,19 +1,26 @@
-import * as React from 'react';
+import { Fragment, useState } from 'react';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+<<<<<<< HEAD
 import { Step1, Step2 } from '../components/steps-project/Steps';
 import { ArrowBack, ArrowForward } from '@mui/icons-material';
 const steps = ['Infos projet', 'Equipe', 'outils'];
+=======
+import StepInfos from '../components/steps-project/StepInfos';
+import { ArrowBack, ArrowForward } from '@mui/icons-material';
+import StepTeam from '../components/steps-project/StepTeam';
+import StepTools from '../components/steps-project/StepTools';
+>>>>>>> 3af7860fc76c380dab5f3a363aa8ed5b0b920f5a
 
-const stepsComponents = [<Step1 />, <Step2 />];
+const steps = ['Infos projet', 'Outils', 'Equipe'];
 
 export default function HorizontalLinearStepper() {
-  const [activeStep, setActiveStep] = React.useState(0);
-  const [skipped, setSkipped] = React.useState(new Set());
+  const [activeStep, setActiveStep] = useState(0);
+  const [skipped, setSkipped] = useState(new Set());
 
   const isStepOptional = (step) => {
     return step === 10;
@@ -57,6 +64,19 @@ export default function HorizontalLinearStepper() {
     setActiveStep(0);
   };
 
+  const [form, updateForm] = useState({
+    name: '',
+    client_id: 1,
+    date_start: '',
+    date_end: '',
+    tools: [],
+    team: []
+  });
+  const stepsComponents = [
+    <StepInfos form={form} updateForm={updateForm} />,
+    <StepTools form={form} updateForm={updateForm} />,
+    <StepTeam />,
+  ];
   return (
     <Box
       sx={{
@@ -68,7 +88,18 @@ export default function HorizontalLinearStepper() {
         flexDirection: 'column',
       }}
     >
-      <Stepper activeStep={activeStep} sx={{ mt: 2 }}>
+      <Typography
+        variant='h1'
+        sx={{
+          fontSize: '2rem',
+          textAlign: 'center',
+          mt: 2,
+          mb: 2,
+        }}
+      >
+        Créer un nouveau projet
+      </Typography>
+      <Stepper activeStep={activeStep} sx={{ mt: 2, mb: 1 }}>
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
@@ -87,12 +118,10 @@ export default function HorizontalLinearStepper() {
           );
         })}
       </Stepper>
-      <Typography sx={{ mb: 0, border: '1px solid red', minHeight: 'auto' }}>
-        {stepsComponents[activeStep]}
-      </Typography>
+      <Box sx={{ mb: 0, minHeight: 'auto' }}>{stepsComponents[activeStep]}</Box>
 
       {activeStep === steps.length ? (
-        <React.Fragment>
+        <Fragment>
           <Typography sx={{ mt: 2, mb: 1 }}>
             All steps completed - you&apos;re finished
           </Typography>
@@ -100,9 +129,9 @@ export default function HorizontalLinearStepper() {
             <Box sx={{ flex: '1 1 auto' }} />
             <Button onClick={handleReset}>Reset</Button>
           </Box>
-        </React.Fragment>
+        </Fragment>
       ) : (
-        <React.Fragment>
+        <Fragment>
           {}
           <Box
             sx={{
@@ -144,7 +173,7 @@ export default function HorizontalLinearStepper() {
               {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
             </Button>
           </Box>
-        </React.Fragment>
+        </Fragment>
       )}
     </Box>
   );

@@ -25,9 +25,7 @@ function Layout({ children }) {
             <Navbar />
           </Grid>
           <Grid item xs={2}>
-            <Item>
-              <Sidebar />
-            </Item>
+            <Sidebar />
           </Grid>
 
           <Grid item xs={10}>
