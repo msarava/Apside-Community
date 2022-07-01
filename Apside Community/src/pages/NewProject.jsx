@@ -9,6 +9,7 @@ import StepInfos from '../components/steps-project/StepInfos';
 import { ArrowBack, ArrowForward } from '@mui/icons-material';
 import StepTeam from '../components/steps-project/StepTeam';
 import StepTools from '../components/steps-project/StepTools';
+import { useNavigate } from 'react-router-dom';
 
 const steps = ['Infos projet', 'Etapes intermédiaires...', 'Equipe'];
 
@@ -53,9 +54,9 @@ export default function HorizontalLinearStepper() {
       return newSkipped;
     });
   };
-
+  const navigate = useNavigate();
   const handleReset = () => {
-    setActiveStep(0);
+    navigate("/")
   };
 
   const [form, updateForm] = useState({
@@ -116,12 +117,23 @@ export default function HorizontalLinearStepper() {
 
       {activeStep === steps.length ? (
         <Fragment>
-          <Typography sx={{ mt: 2, mb: 1 }}>
-            All steps completed - you&apos;re finished
-          </Typography>
+          <Typography
+          item
+          variant='h3'
+          sx={{
+            fontSize: '1.5rem',
+            fontWeight: '100',
+            color: 'gray',
+            textAlign: 'center',
+            width: '100%',
+            mt:2
+          }}
+        >
+          Votre projet a bien été créé.
+        </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
             <Box sx={{ flex: '1 1 auto' }} />
-            <Button onClick={handleReset}>Reset</Button>
+            <Button onClick={handleReset}>Retour à l'accueil</Button>
           </Box>
         </Fragment>
       ) : (
