@@ -17,6 +17,7 @@ import Avatar from '@mui/material/Avatar';
 import FolderIcon from '@mui/icons-material/Folder';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import BuildIcon from '@mui/icons-material/Build';
+import Utils from '../utils/Utils';
 
 function ProjectDetail() {
   const { id } = useParams();
@@ -51,14 +52,16 @@ function ProjectDetail() {
       <Grid item xs={6}>
         <Card>
           <CardContent>
-            <Typography 
-              sx={{  fontSize: 14}}
+            <Typography
+              sx={{ fontSize: 14 }}
               color='text.secondary'
               gutterBottom
             >
               Créé le {projectData.created_at}
             </Typography>
-            <Typography align='center' variant='h3'>{projectData.name}</Typography>
+            <Typography align='center' variant='h3'>
+              {projectData.name}
+            </Typography>
 
             <Typography variant='body2'></Typography>
           </CardContent>
@@ -100,11 +103,15 @@ function ProjectDetail() {
           {projectData.team.map((data) => (
             <ListItem divider>
               <ListItemAvatar>
-                <Avatar>
+                <Avatar src={Utils.getUserById(data).profile_pict}>
                   <AccountCircleIcon />
                 </Avatar>
               </ListItemAvatar>
-              <ListItemText primary={data} />
+              <ListItemText
+                primary={`${Utils.getUserById(data).name} (${
+                  Utils.getUserById(data).job_title
+                })`}
+              />
             </ListItem>
           ))}
         </Card>
