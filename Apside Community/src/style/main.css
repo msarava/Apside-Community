@@ -60,3 +60,29 @@
   justify-content: center;
   gap: 1rem;
 }
+
+.project-details-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  gap: 1rem;
+}
+.project-details-header{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.project-details-jauge{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+
+}
+
+.project-details-bodies{
+  display: flex;
+  gap: 1rem;
+}
