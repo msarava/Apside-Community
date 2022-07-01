@@ -78,7 +78,7 @@ function Project({
   }
   console.log(Utils.getUserById(projectList[0].manager));
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} sx={{mb:2}}>
       <Table sx={{ minWidth: 650 }} size='small' aria-label='a dense table'>
         <TableHead>
           <TableRow>
@@ -86,21 +86,21 @@ function Project({
             <TableCell
               colspan={8}
               align='center'
-              sx={{ backgroundColor: '#e89759' }}
+              sx={{ backgroundColor: '#e77620' }}
             >
-              {title.toUpperCase()}
+              <Typography sx={{color: "white", fontWeight:"bold"}}>{title.toUpperCase()}</Typography>
             </TableCell>
           </TableRow>
           <TableRow>
-          <TableCell align='right'>Voir</TableCell>
-            <TableCell>Projet</TableCell>
+          <TableCell align='right'  sx={{fontWeight: 'bold'}}><Typography sx={{color: "#e89759", fontWeight:"bold"}}>Voir</Typography></TableCell>
+            <TableCell  sx={{fontWeight: 'bold'}}><Typography sx={{color: "#e89759", fontWeight:"bold"}}>Projet</Typography></TableCell>
 
-            <TableCell align='right'>Client</TableCell>
-            <TableCell align='right'>Manager projet</TableCell>
-            <TableCell align='right'>Développeurs</TableCell>
-            <TableCell align='right'>Date début</TableCell>
-            <TableCell align='right'>Date fin estimée</TableCell>
-            <TableCell align='right'>Technos</TableCell>
+            <TableCell align='right'  sx={{fontWeight: 'bold'}}><Typography sx={{color: "#e89759", fontWeight:"bold"}}>Client</Typography></TableCell>
+            <TableCell align='right'  sx={{fontWeight: 'bold'}}><Typography sx={{color: "#e89759", fontWeight:"bold"}}>Manager projet</Typography></TableCell>
+            <TableCell align='right'  sx={{fontWeight: 'bold'}}><Typography sx={{color: "#e89759", fontWeight:"bold"}}>Développeurs</Typography></TableCell>
+            <TableCell align='right'  sx={{fontWeight: 'bold'}}><Typography sx={{color: "#e89759", fontWeight:"bold"}}>Date début</Typography></TableCell>
+            <TableCell align='right'  sx={{fontWeight: 'bold'}}><Typography sx={{color: "#e89759", fontWeight:"bold"}}>Date fin estimée</Typography></TableCell>
+            <TableCell align='right'  sx={{fontWeight: 'bold'}}><Typography sx={{color: "#e89759", fontWeight:"bold"}}>Technos</Typography></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
