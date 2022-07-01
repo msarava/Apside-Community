@@ -19,6 +19,7 @@ import logo_AC from '../assets/logo_apside_clair.png';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Grid } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -259,7 +260,10 @@ export default function PrimarySearchAppBar() {
                 onClick={handleProfileMenuOpen}
                 color='inherit'
               >
-                <AccountCircle />
+                <Avatar
+                  alt='Travis Howard'
+                  src='/src/assets/image Profil.jpeg'
+                />
               </IconButton>
             </Box>
             <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
