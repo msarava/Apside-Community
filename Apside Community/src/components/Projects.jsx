@@ -91,7 +91,7 @@ function Project({
             </TableCell>
           </TableRow>
           <TableRow>
-          <TableCell align='right'><GiMagnifyingGlass/></TableCell>
+          <TableCell align='right'>Voir</TableCell>
             <TableCell>Projet</TableCell>
 
             <TableCell align='right'>Client</TableCell>
