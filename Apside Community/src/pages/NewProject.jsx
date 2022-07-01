@@ -5,18 +5,13 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-<<<<<<< HEAD
-import { Step1, Step2 } from '../components/steps-project/Steps';
-import { ArrowBack, ArrowForward } from '@mui/icons-material';
-const steps = ['Infos projet', 'Equipe', 'outils'];
-=======
 import StepInfos from '../components/steps-project/StepInfos';
 import { ArrowBack, ArrowForward } from '@mui/icons-material';
 import StepTeam from '../components/steps-project/StepTeam';
 import StepTools from '../components/steps-project/StepTools';
->>>>>>> 3af7860fc76c380dab5f3a363aa8ed5b0b920f5a
+import { useNavigate } from 'react-router-dom';
 
-const steps = ['Infos projet', 'Outils', 'Equipe'];
+const steps = ['Infos projet', 'Etapes intermédiaires...', 'Equipe'];
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = useState(0);
@@ -59,9 +54,9 @@ export default function HorizontalLinearStepper() {
       return newSkipped;
     });
   };
-
+  const navigate = useNavigate();
   const handleReset = () => {
-    setActiveStep(0);
+    navigate("/")
   };
 
   const [form, updateForm] = useState({
@@ -122,12 +117,23 @@ export default function HorizontalLinearStepper() {
 
       {activeStep === steps.length ? (
         <Fragment>
-          <Typography sx={{ mt: 2, mb: 1 }}>
-            All steps completed - you&apos;re finished
-          </Typography>
+          <Typography
+          item
+          variant='h3'
+          sx={{
+            fontSize: '1.5rem',
+            fontWeight: '100',
+            color: 'gray',
+            textAlign: 'center',
+            width: '100%',
+            mt:2
+          }}
+        >
+          Votre projet a bien été créé.
+        </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
             <Box sx={{ flex: '1 1 auto' }} />
-            <Button onClick={handleReset}>Reset</Button>
+            <Button onClick={handleReset}>Retour à l'accueil</Button>
           </Box>
         </Fragment>
       ) : (
