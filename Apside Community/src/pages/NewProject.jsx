@@ -10,7 +10,7 @@ import { ArrowBack, ArrowForward } from '@mui/icons-material';
 import StepTeam from '../components/steps-project/StepTeam';
 import StepTools from '../components/steps-project/StepTools';
 
-const steps = ['Infos projet', 'Outils', 'Equipe'];
+const steps = ['Infos projet', 'Etapes intermédiaires...', 'Equipe'];
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = useState(0);
