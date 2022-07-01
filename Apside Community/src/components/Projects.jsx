@@ -38,6 +38,7 @@ function Project({
     title = 'tous mes projets';
     newprojectList = projectList.slice(30, 35);
   }
+  console.log(Utils.getUserById(projectList[0].manager));
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size='medium' aria-label='a dense table'>
@@ -65,7 +66,7 @@ function Project({
         <TableBody>
           {newprojectList.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component='th' scope='row'>
@@ -79,7 +80,9 @@ function Project({
               <TableCell align='right'>
                 {Utils.getUserById(row.manager).name}
               </TableCell>
-              <TableCell align='right'>{row.team.map((el) => el)}</TableCell>
+              <TableCell align='right'>
+                {row.team.map((el) => Utils.getUserById(el).name)}
+              </TableCell>
               <TableCell align='right'>{row.date_start}</TableCell>
               <TableCell align='right'>{row.date_end}</TableCell>
               <TableCell align='right'>{row.techno.map((el) => el)}</TableCell>
