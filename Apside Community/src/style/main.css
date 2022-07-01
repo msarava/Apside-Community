@@ -86,3 +86,22 @@
   display: flex;
   gap: 1rem;
 }
+
+.btn-new-proj{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.title-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-proj{
+  display: flex;
+  justify-content: center;
+  min-width: 70vw;
+
+
+}

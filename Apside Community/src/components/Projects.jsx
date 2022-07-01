@@ -1,5 +1,7 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
+import LinkBehavior from '../components/LinkBehavior';
+import CreateIcon from '@mui/icons-material/Create';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -10,8 +12,8 @@ import Paper from '@mui/material/Paper';
 import projectList from '../../data/project.json';
 import Utils from '../utils/Utils';
 import Jauge from './Jauge';
-import {GiMagnifyingGlass} from "react-icons/gi";
-import { Typography } from '@mui/material';
+import { GiMagnifyingGlass } from 'react-icons/gi';
+import { Button, Typography } from '@mui/material';
 import { DiJava } from 'react-icons/di';
 import {
   IoLogoJavascript,
@@ -81,17 +83,29 @@ function Project({
       <Table sx={{ minWidth: 650 }} size='medium' aria-label='a dense table'>
         <TableHead>
           <TableRow>
-           
             <TableCell
               colspan={8}
               align='center'
               sx={{ backgroundColor: '#e89759' }}
             >
-              {title.toUpperCase()}
+              <div className='title-container'>
+                <div className='title-proj'>{title.toUpperCase()}</div>
+                <div className='btn-new-proj'>
+                  <Button
+                    size='small'
+                    variant='contained'
+                    startIcon={<CreateIcon />}
+                    component={LinkBehavior}
+                    to='/new-project'
+                  >
+                    + Créer un projet
+                  </Button>
+                </div>
+              </div>
             </TableCell>
           </TableRow>
           <TableRow>
-          <TableCell align='right'>Voir</TableCell>
+            <TableCell align='right'>Voir</TableCell>
             <TableCell>Projet</TableCell>
 
             <TableCell align='right'>Client</TableCell>
@@ -109,7 +123,9 @@ function Project({
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell align='right'>
-                <Link to={`/projects/${row.id}`}><GiMagnifyingGlass/></Link>
+                <Link to={`/projects/${row.id}`}>
+                  <GiMagnifyingGlass />
+                </Link>
               </TableCell>
               <TableCell component='th' scope='row'>
                 <Typography sx={{ mb: 1 }}>{row.name}</Typography>
