@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {Avatar, AvatarGroup } from '@mui/material'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -78,7 +79,7 @@ function Project({
   console.log(Utils.getUserById(projectList[0].manager));
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} size='medium' aria-label='a dense table'>
+      <Table sx={{ minWidth: 650 }} size='small' aria-label='a dense table'>
         <TableHead>
           <TableRow>
            
@@ -108,10 +109,8 @@ function Project({
               key={row.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell align='right'>
-                <Link to={`/projects/${row.id}`}><GiMagnifyingGlass/></Link>
-              </TableCell>
-              <TableCell component='th' scope='row'>
+              <TableCell><Link to={`/projects/${row.id}`}><GiMagnifyingGlass /></Link></TableCell>
+              <TableCell align='left'>
                 <Typography sx={{ mb: 1 }}>{row.name}</Typography>
                 <Jauge state={row.state} height='10px' />
               </TableCell>
@@ -123,7 +122,9 @@ function Project({
                 {Utils.getUserById(row.manager).name}
               </TableCell>
               <TableCell align='right'>
-                {row.team.map((el) => Utils.getUserById(el).name)}
+                <AvatarGroup max={4}>
+                {row.team.map((el) => <Avatar src={Utils.getUserById(el).profile_pict} sx={{ bgcolor: "#f0f0f0" }} alt={Utils.getUserById(el).name}/>)}
+                </AvatarGroup>
               </TableCell>
               <TableCell align='right'>{row.date_start}</TableCell>
               <TableCell align='right'>{row.date_end}</TableCell>
