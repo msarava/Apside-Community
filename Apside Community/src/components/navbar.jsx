@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -15,7 +15,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import logo_AC from '../assets/logo_apside.png';
+import logo_AC from '../assets/logo_apside_clair.png';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Grid } from '@mui/material';
@@ -73,6 +73,10 @@ export default function PrimarySearchAppBar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+  const [filter, setFilter] = useState(0);
+  const handleFilter = (e) => {
+    setFilter(e.target.value);
+  };
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -107,9 +111,9 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Profil</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Mon compte</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Déconnexion</MenuItem>
     </Menu>
   );
 
@@ -167,8 +171,13 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='static' color='primary'>
-        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+      <AppBar position='static' sx={{ backgroundColor: '#183650' }}>
+        <Toolbar
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+          }}
+        >
           <Typography
             variant='h6'
             noWrap
@@ -192,9 +201,21 @@ export default function PrimarySearchAppBar() {
               width: '70%',
             }}
           >
-            <TextField select size='small' sx={{ width: 150 }} value={filtres}>
-              {filtres.map((option) => (
-                <MenuItem>{option.label}</MenuItem>
+            <TextField
+              select
+              size='small'
+              sx={{
+                width: 150,
+                backgroundColor: 'lightgray',
+                borderRadius: '5px',
+              }}
+              value={filter}
+              onChange={handleFilter}
+            >
+              {filtres.map((option, id) => (
+                <MenuItem key={id} value={id}>
+                  {option.label}
+                </MenuItem>
               ))}
             </TextField>
             {/* <Autocomplete
