@@ -20,7 +20,7 @@ function intersection(a, b) {
   return a.filter((value) => b.indexOf(value) !== -1);
 }
 
-export default function StepTeam() {
+export default function StepTeam({ form, updateForm}) {
   const [agency, setAgency] = React.useState(
     '55f29782-498e-48ff-8b8c-5a7222ab4b71'
   );
@@ -184,7 +184,11 @@ export default function StepTeam() {
 
       <Grid container spacing={2} justifyContent='center' alignItems='center'>
         <Grid item>
-          {customList(left.filter((user) => user.includes(collab)))}
+          {customList(
+            left.filter((user) =>
+              user.toLowerCase().includes(collab.toLocaleLowerCase())
+            )
+          )}
         </Grid>
         <Grid item>
           <Grid container direction='column' alignItems='center'>
