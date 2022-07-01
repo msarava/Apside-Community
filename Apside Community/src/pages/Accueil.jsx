@@ -10,7 +10,7 @@ function Accueil() {
         <Actualites />
       </div>
       <div>
-      <Projects shortlist={true}/>
+      <Projects myproject={true}/>
       <Projects  favoris={true}/>
       </div>
       </div>

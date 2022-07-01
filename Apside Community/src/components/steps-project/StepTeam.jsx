@@ -11,6 +11,7 @@ import Collaborators from '../../../data/collaborator.json';
 import Agencies from '../../../data/agency.json';
 import { FormControlLabel, MenuItem, TextField } from '@mui/material';
 import { CheckBox } from '@mui/icons-material';
+import { Typography } from '@mui/material';
 
 function not(a, b) {
   return a.filter((value) => b.indexOf(value) === -1);
@@ -146,7 +147,19 @@ export default function StepTeam({ form, updateForm}) {
 
   return (
     <div className='step-collab-container'>
-      <div className='step-collab-title'>Mon équipe</div>
+      <div className='step-collab-title'> <Typography
+          item
+          variant='h3'
+          sx={{
+            fontSize: '1.5rem',
+            fontWeight: '100',
+            color: 'gray',
+            textAlign: 'center',
+            width: '100%',
+          }}
+        >
+          Etapes Intermédiaires...
+        </Typography></div>
       <div className='step-collab-filters'>
         <TextField
           helperText='Entrer le nom du collaborateur'
