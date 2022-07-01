@@ -91,7 +91,7 @@ function Project({
               <div className='title-container'>
                 <div className='title-proj'>{title.toUpperCase()}</div>
                 <div className='btn-new-proj'>
-                  <Button
+                  <Button sx={{backgroundColor:'#787878'}}
                     size='small'
                     variant='contained'
                     startIcon={<CreateIcon />}
