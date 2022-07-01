@@ -62,9 +62,10 @@ function Project({
   let title = 'projets';
   if (myproject) {
     title = 'mes projets';
-    newprojectList = projectList.filter(
-      (project) => project.team.includes(id) || project.manager === id
-    );
+    // newprojectList = projectList.filter(
+    //   (project) => project.team.includes(id) || project.manager === id
+    // );
+    newprojectList = newprojectList = projectList.slice(30, 35);
   }
   if (favoris) {
     title = 'mes favoris';
@@ -76,7 +77,7 @@ function Project({
   }
   if (shortlist) {
     title = 'tous mes projets';
-    newprojectList = projectList.slice(30, 35);
+    newprojectList = projectList.slice(30, 40);
   }
   console.log(Utils.getUserById(projectList[0].manager));
   return (
@@ -86,7 +87,7 @@ function Project({
         <TableHead>
           <TableRow>
             <TableCell
-              colspan={8}
+              colSpan={8}
               align='center'
               sx={{ backgroundColor: '#e77620' }}
             >
