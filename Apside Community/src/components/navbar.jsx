@@ -218,14 +218,6 @@ export default function PrimarySearchAppBar() {
                 </MenuItem>
               ))}
             </TextField>
-            {/* <Autocomplete
-              disablePortal
-              id='combo-box-demo'
-              options={filtres}
-              size='small'
-              sx={{ width: 200 }}
-              renderInput={(params) => <TextField {...params} label='Filtre' />}
-            /> */}
             <Search>
               <SearchIconWrapper>
                 <SearchIcon />
