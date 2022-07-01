@@ -33,8 +33,12 @@ const collaboratorsWithAgencies = collaborators.map((el) => {
       getAgenciesId(agencies)[Math.floor(Math.random() * agencies.length)],
   };
 });
-console.log(collaboratorsWithAgencies);
 
+const collaboratorsId = (collaborator) => {
+  return collaborator.map((el) => el.id);
+};
+
+//console.log(collaboratorsId(collaborators));
 // fs.appendFile(
 //   'agency2.json',
 //   JSON.stringify(collaboratorsWithAgencies),
@@ -43,3 +47,27 @@ console.log(collaboratorsWithAgencies);
 //     console.log('tout est ok');
 //   }
 // );
+
+const projectsWithGoodCollaborators = (projects, collaborators) => {
+  return projects.map((project) => {
+    return {
+      ...project,
+      team: collaborators.splice(0, project.team.length + 1),
+    };
+  });
+};
+
+console.log(
+  projectsWithGoodCollaborators(projects, collaboratorsId(collaborators))
+);
+
+fs.appendFile(
+  'collaborators.json',
+  JSON.stringify(
+    projectsWithGoodCollaborators(projects, collaboratorsId(collaborators))
+  ),
+  (error) => {
+    if (error) throw error;
+    console.log('tout est ok');
+  }
+);
