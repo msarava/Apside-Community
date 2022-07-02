@@ -29,7 +29,6 @@ export default function StepTeam({ form, updateForm}) {
 
   const searchedAgency = Agencies.filter((el) => el.id === agency)[0]?.id || '';
 
-  console.log(searchedAgency);
   const collabList = Collaborators.filter(
     (collab) => collab.technos.includes(techno.toLowerCase()) || techno === ''
   )

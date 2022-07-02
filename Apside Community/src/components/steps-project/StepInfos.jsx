@@ -11,7 +11,6 @@ function StepInfos({ form, updateForm }) {
   }`;
   const [nameInfo, setNameInfo] = useState('primary');
   const handleUpdateForm = (e) => {
-    console.log('name changed:', e.target.value);
     if (e.target.name === 'name') {
       if (
         projectsList.filter(

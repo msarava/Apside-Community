@@ -62,9 +62,7 @@ function Project({
   let title = 'projets';
   if (myproject) {
     title = 'mes projets';
-    // newprojectList = projectList.filter(
-    //   (project) => project.team.includes(id) || project.manager === id
-    // );
+ 
     newprojectList = newprojectList = projectList.slice(30, 35);
   }
   if (favoris) {
@@ -79,7 +77,6 @@ function Project({
     title = 'tous mes projets';
     newprojectList = projectList.slice(30, 40);
   }
-  console.log(Utils.getUserById(projectList[0].manager));
   return (
     <Box sx={{ pr: 2 }}>
       <TableContainer component={Paper} sx={{ mb: 2 }}>

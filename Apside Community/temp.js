@@ -11,16 +11,10 @@ const collaboratorProjectManagerID = collaborators
 const getRandomId = (ids) => {
   return ids[Math.floor(Math.random() * ids.length)];
 };
-//console.log(getRandomId(collaboratorProjectManagerID));
 
 const projectsUpdate = projects.map((project) => {
   return { ...project, manager: getRandomId(collaboratorProjectManagerID) };
 });
-
-// fs.appendFile('project2.json', JSON.stringify(projectsUpdate), (error) => {
-//   if (error) throw error;
-//   console.log('tout est ok');
-// });
 
 const getAgenciesId = (agencies) => {
   return agencies.map((el) => el.id);
@@ -38,16 +32,6 @@ const collaboratorsId = (collaborator) => {
   return collaborator.map((el) => el.id);
 };
 
-//console.log(collaboratorsId(collaborators));
-// fs.appendFile(
-//   'agency2.json',
-//   JSON.stringify(collaboratorsWithAgencies),
-//   (error) => {
-//     if (error) throw error;
-//     console.log('tout est ok');
-//   }
-// );
-
 const projectsWithGoodCollaborators = (projects, collaborators) => {
   return projects.map((project) => {
     return {
@@ -57,10 +41,6 @@ const projectsWithGoodCollaborators = (projects, collaborators) => {
   });
 };
 
-console.log(
-  projectsWithGoodCollaborators(projects, collaboratorsId(collaborators))
-);
-
 fs.appendFile(
   'collaborators.json',
   JSON.stringify(
@@ -68,6 +48,5 @@ fs.appendFile(
   ),
   (error) => {
     if (error) throw error;
-    console.log('tout est ok');
   }
 );

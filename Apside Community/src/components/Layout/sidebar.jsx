@@ -4,11 +4,6 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
-
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
-import StarBorder from '@mui/icons-material/StarBorder';
 import CreateIcon from '@mui/icons-material/Create';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import FolderSpecialIcon from '@mui/icons-material/FolderSpecial';
@@ -33,12 +28,18 @@ function Sidebar() {
           component='nav'
           aria-labelledby='nested-list-subheader'
           subheader={
-            <ListSubheader component='div' id='nested-list-subheader'>
-              {/* Menu */}
-            </ListSubheader>
+            <ListSubheader
+              component='div'
+              id='nested-list-subheader'
+            ></ListSubheader>
           }
         >
-          <Link component={LinkBehavior} to='/Apside-Community' underline='none' color='black'>
+          <Link
+            component={LinkBehavior}
+            to='/Apside-Community'
+            underline='none'
+            color='black'
+          >
             <ListItemButton>
               <ListItemIcon>
                 <HomeIcon />
@@ -77,10 +78,8 @@ function Sidebar() {
               <ManageSearchIcon />
             </ListItemIcon>
             <ListItemText primary='Recherche' />
-            {/* {open ? <ExpandLess /> : <ExpandMore />} */}
           </ListItemButton>
-          {/* <Collapse in={open} timeout='auto' unmountOnExit>
-            <List component='div' disablePadding> */}
+
           <Link
             component={LinkBehavior}
             to='/Apside-Community/projects'
@@ -99,7 +98,12 @@ function Sidebar() {
               <ListItemText primary='Projets' />
             </ListItemButton>{' '}
           </Link>
-          <Link component={LinkBehavior} to='/Apside-Community' underline='none' color='black'>
+          <Link
+            component={LinkBehavior}
+            to='/Apside-Community'
+            underline='none'
+            color='black'
+          >
             <ListItemButton sx={{ pl: 6 }}>
               <ListItemIcon>
                 <PersonSearchIcon />
@@ -107,7 +111,12 @@ function Sidebar() {
               <ListItemText primary='Collaborateurs' />
             </ListItemButton>
           </Link>
-          <Link component={LinkBehavior} to='/' underline='none' color='black'>
+          <Link
+            component={LinkBehavior}
+            to='/Apside-Community'
+            underline='none'
+            color='black'
+          >
             <ListItemButton sx={{ pl: 6 }}>
               <ListItemIcon>
                 <TravelExploreIcon />
@@ -115,8 +124,6 @@ function Sidebar() {
               <ListItemText primary='Agences' />
             </ListItemButton>
           </Link>
-          {/* </List>
-          </Collapse> */}
         </List>
       </div>
       <div className='btn-create-container'>

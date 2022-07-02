@@ -42,8 +42,6 @@ export default function HorizontalLinearStepper() {
 
   const handleSkip = () => {
     if (!isStepOptional(activeStep)) {
-      // You probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
       throw new Error("You can't skip a step that isn't optional.");
     }
 
@@ -56,7 +54,7 @@ export default function HorizontalLinearStepper() {
   };
   const navigate = useNavigate();
   const handleReset = () => {
-    navigate("/")
+    navigate('/Apside-Community');
   };
 
   const [form, updateForm] = useState({
@@ -65,7 +63,7 @@ export default function HorizontalLinearStepper() {
     date_start: '',
     date_end: '',
     tools: [],
-    team: []
+    team: [],
   });
   const stepsComponents = [
     <StepInfos form={form} updateForm={updateForm} />,
@@ -118,19 +116,19 @@ export default function HorizontalLinearStepper() {
       {activeStep === steps.length ? (
         <Fragment>
           <Typography
-          item
-          variant='h3'
-          sx={{
-            fontSize: '1.5rem',
-            fontWeight: '100',
-            color: 'gray',
-            textAlign: 'center',
-            width: '100%',
-            mt:2
-          }}
-        >
-          Votre projet a bien été créé.
-        </Typography>
+            item
+            variant='h3'
+            sx={{
+              fontSize: '1.5rem',
+              fontWeight: '100',
+              color: 'gray',
+              textAlign: 'center',
+              width: '100%',
+              mt: 2,
+            }}
+          >
+            Votre projet a bien été créé.
+          </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
             <Box sx={{ flex: '1 1 auto' }} />
             <Button onClick={handleReset}>Retour à l'accueil</Button>
