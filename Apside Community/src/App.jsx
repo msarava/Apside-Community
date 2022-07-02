@@ -10,12 +10,12 @@ import ProjectDetail from './components/ProjectDetail';
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<Accueil />} />
-      <Route path='/favorites' element={<Favorites />} />
-      <Route path='/myprojects' element={<ProjectInProgress />} />
-      <Route path='/projects' element={<Projects />} />
-      <Route path='/new-project' element={<NewProject />} />
-      <Route path='/projects/:id' element={<ProjectDetail />} />
+      <Route path='/Apside-Community' element={<Accueil />} />
+      <Route path='/Apside-Community/favorites' element={<Favorites />} />
+      <Route path='/Apside-Community/myprojects' element={<ProjectInProgress />} />
+      <Route path='/Apside-Community/projects' element={<Projects />} />
+      <Route path='/Apside-Community/new-project' element={<NewProject />} />
+      <Route path='/Apside-Community/projects/:id' element={<ProjectDetail />} />
     </Routes>
   );
 }

@@ -38,7 +38,7 @@ function Sidebar() {
             </ListSubheader>
           }
         >
-          <Link component={LinkBehavior} to='/' underline='none' color='black'>
+          <Link component={LinkBehavior} to='/Apside-Community' underline='none' color='black'>
             <ListItemButton>
               <ListItemIcon>
                 <HomeIcon />
@@ -48,7 +48,7 @@ function Sidebar() {
           </Link>
           <Link
             component={LinkBehavior}
-            to='/myprojects'
+            to='/Apside-Community/myprojects'
             underline='none'
             color='black'
           >
@@ -61,7 +61,7 @@ function Sidebar() {
           </Link>
           <Link
             component={LinkBehavior}
-            to='/favorites'
+            to='/Apside-Community/favorites'
             underline='none'
             color='black'
           >
@@ -83,7 +83,7 @@ function Sidebar() {
             <List component='div' disablePadding> */}
           <Link
             component={LinkBehavior}
-            to='/projects'
+            to='/Apside-Community/projects'
             underline='none'
             color='black'
           >
@@ -99,7 +99,7 @@ function Sidebar() {
               <ListItemText primary='Projets' />
             </ListItemButton>{' '}
           </Link>
-          <Link component={LinkBehavior} to='/' underline='none' color='black'>
+          <Link component={LinkBehavior} to='/Apside-Community' underline='none' color='black'>
             <ListItemButton sx={{ pl: 6 }}>
               <ListItemIcon>
                 <PersonSearchIcon />
@@ -125,7 +125,7 @@ function Sidebar() {
           variant='outlined'
           startIcon={<CreateIcon />}
           component={LinkBehavior}
-          to='/new-project'
+          to='/Apside-Community/new-project'
         >
           + Créer un projet
         </Button>

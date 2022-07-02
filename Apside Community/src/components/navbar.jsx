@@ -187,7 +187,7 @@ export default function PrimarySearchAppBar() {
           >
             <div className='logo_AC'>
               <img
-                srcSet={`${logo_AC}?w=164&h=164&fit=crop&auto=format&dpr=1 2x`}
+                src={logo_AC}
                 alt='logo Apside Community'
               />
             </div>
@@ -262,7 +262,7 @@ export default function PrimarySearchAppBar() {
               >
                 <Avatar
                   alt='Travis Howard'
-                  src='/src/assets/image Profil.jpeg'
+                  src='/src/assets/image_Profil.jpeg'
                 />
               </IconButton>
             </Box>
