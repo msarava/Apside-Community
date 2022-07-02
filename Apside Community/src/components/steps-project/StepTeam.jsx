@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import Collaborators from '../../../data/collaborator.json';
 import Agencies from '../../../data/agency.json';
-import { Typography } from '@mui/material';
+import { TextField, Typography } from '@mui/material';
 
 function not(a, b) {
   return a.filter((value) => b.indexOf(value) === -1);
@@ -19,7 +19,7 @@ function intersection(a, b) {
   return a.filter((value) => b.indexOf(value) !== -1);
 }
 
-export default function StepTeam({ form, updateForm}) {
+export default function StepTeam({ form, updateForm }) {
   const [agency, setAgency] = React.useState(
     '55f29782-498e-48ff-8b8c-5a7222ab4b71'
   );
@@ -144,7 +144,9 @@ export default function StepTeam({ form, updateForm}) {
 
   return (
     <div className='step-collab-container'>
-      <div className='step-collab-title'> <Typography
+      <div className='step-collab-title'>
+        {' '}
+        <Typography
           item
           variant='h3'
           sx={{
@@ -156,7 +158,8 @@ export default function StepTeam({ form, updateForm}) {
           }}
         >
           Etapes Intermédiaires...
-        </Typography></div>
+        </Typography>
+      </div>
       <div className='step-collab-filters'>
         <TextField
           helperText='Entrer le nom du collaborateur'
