@@ -9,8 +9,6 @@ import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import Collaborators from '../../../data/collaborator.json';
 import Agencies from '../../../data/agency.json';
-import { FormControlLabel, MenuItem, TextField } from '@mui/material';
-import { CheckBox } from '@mui/icons-material';
 import { Typography } from '@mui/material';
 
 function not(a, b) {

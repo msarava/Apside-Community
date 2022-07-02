@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Grid, Box, MenuItem, TextField, Typography } from '@mui/material';
+import { Grid, MenuItem, TextField, Typography } from '@mui/material';
 import clients from '../../../data/client.json';
 import { DateTime } from 'luxon';
 import projectsList from '../../../data/project.json';

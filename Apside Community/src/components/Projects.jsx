@@ -33,7 +33,6 @@ import {
   SiMysql,
   SiPhp,
 } from 'react-icons/si';
-import { RowingSharp } from '@mui/icons-material';
 
 function Project({
   favoris = false,
