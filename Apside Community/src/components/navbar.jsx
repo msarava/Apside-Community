@@ -20,7 +20,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Grid } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
-import profile from ' '
+import profile from '/src/assets/image_Profil.jpeg';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -190,7 +190,7 @@ export default function PrimarySearchAppBar() {
               <img
                 src={logo_AC}
                 alt='logo Apside Community'
-                style={{'width':'250px'}}
+                style={{ width: '250px' }}
               />
             </div>
           </Typography>
@@ -262,10 +262,7 @@ export default function PrimarySearchAppBar() {
                 onClick={handleProfileMenuOpen}
                 color='inherit'
               >
-                <Avatar
-                  alt='Travis Howard'
-                  src={profile}
-                />
+                <Avatar alt='Travis Howard' src={profile} />
               </IconButton>
             </Box>
             <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
