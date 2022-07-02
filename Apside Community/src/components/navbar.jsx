@@ -20,6 +20,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Grid } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
+import profile from ' '
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -189,6 +190,7 @@ export default function PrimarySearchAppBar() {
               <img
                 src={logo_AC}
                 alt='logo Apside Community'
+                style={{'width':'250px'}}
               />
             </div>
           </Typography>
@@ -262,7 +264,7 @@ export default function PrimarySearchAppBar() {
               >
                 <Avatar
                   alt='Travis Howard'
-                  src='/src/assets/image_Profil.jpeg'
+                  src={profile}
                 />
               </IconButton>
             </Box>
