@@ -61,7 +61,7 @@ function Project({
   let title = 'projets';
   if (myproject) {
     title = 'mes projets';
- 
+
     newprojectList = newprojectList = projectList.slice(30, 35);
   }
   if (favoris) {
@@ -101,7 +101,7 @@ function Project({
                         variant='contained'
                         startIcon={<CreateIcon />}
                         component={LinkBehavior}
-                        to='/new-project'
+                        to='/Apside-Community/new-project'
                       >
                         + Nouveau projet
                       </Button>
