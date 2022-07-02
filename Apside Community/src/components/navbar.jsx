@@ -20,7 +20,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Grid } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
-import profile from '/src/assets/image_Profil.jpeg'
+import profile from ' '
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
