@@ -75,7 +75,7 @@ function ProjectDetail() {
           variant='contained'
           startIcon={<BookmarksIcon />}
           component={LinkBehavior}
-          to='/favorites'
+          to='/Apside-Community/favorites'
         >
           + Ajouter aux favoris
         </Button>
