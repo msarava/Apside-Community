@@ -1,4 +1,4 @@
-# Apside-Community
+# Apside Community
 
 **Wild Code School's Hackathon challenge** in collaboration with Apside, from 29/06 at 3pm to 01/07/2022 at 11am.
 
