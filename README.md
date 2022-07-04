@@ -12,10 +12,11 @@ Apside explained us a problem they were facing : lack of colaboration and commun
 
 ## Our proposal : Apside Community
 
-A tool that let a project manager to login and create its new project. This platform let the project manager describe the problematic he/she's facing and how the project solve it : 
+A tool that let a project manager to login and create a new project. This platform let the project manager describe the problematic he/she's facing and how the project solve it : 
 
-One could access other project achievment and progress threw a 'news feed', follow other project that would have interesting solution proposal in a favorites section and of course search for new ideas and other existing project threw a search tool.
+One could access other project achievment and progress threw a 'news feed', follow other project that would have interesting solution proposal in a favorites section and of course search for new ideas and other existing project threw a search tool. 
 
+Linked with all collaboration tools, and accessing all workers ressources, Apside Community aims to become a centralised platform for decentrilised innovation process.
 
 ## The Team
 
